@@ -4,13 +4,17 @@
 html {
   padding: 1em;
 }
-.numInput {
-  font-size: 1.5em;
-  padding: 3px;
-  border: none;
-  border-bottom: 2px solid black;
-  box-shadow: none;
+.button {
+  text-decoration: none;
+  color: black;
+  background-color: none;
+  border: 2px solid black;
+  padding: 1em 2em;
 }
-.numInput:focus {
-  outline: none;
+.button:hover, .button:focus, .button:active {
+  background: black;
+  color: white;
+}
+.buttonwrapper {
+  margin: 2em auto;
 }

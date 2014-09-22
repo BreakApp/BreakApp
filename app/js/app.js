@@ -7,5 +7,15 @@ var breakApp = angular.module('breakApp', ['ngRoute']);
 // service(s)
 require('./services/break-service')(breakApp);
 
-// directive(s)
-require('./directives/break-display-directive')(breakApp); // contains controller
+// controller(s)
+require('./controllers/break-controller')(breakApp);
+
+// router
+breakApp.config(['$routeProvider', function($routeProvider) {
+  $routeProvider.when('/', {
+    templateUrl: 'views/break-view.html',
+    controller: 'breakController'
+  }).otherwise({
+    redirectTo: '/'
+  });
+}]);
