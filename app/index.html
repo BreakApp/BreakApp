@@ -10,8 +10,10 @@
 <body>
 
   <div ng-app="breakApp" ng-strict-di>
-    <h1>Take a Break</h1>
-    <div break-display></div>
+    <div ng-controller="breakController">
+      <h1>Take a Break</h1>
+      <div ng-view></div>
+    </div>
   </div>
 
   <script src="bundle.js"></script>

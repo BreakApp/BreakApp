@@ -1,0 +1,13 @@
+<div ng-controller="breakController" >
+  <div class="inputarea">
+    <p>It's not good for you to sit still all day. Click the button to get an idea for a quick break...</p>
+    
+    <div class="buttonwrapper">
+      <a href="" class="button" ng-click="getBreak()">Give me a break</a>
+    </div>
+  </div>
+
+  <div class="outputarea" ng-show="currentBreak">
+    <p><strong>Break:</strong> {{currentBreak}}</p>
+  </div>
+</div>
