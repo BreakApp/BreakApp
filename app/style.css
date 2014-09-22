@@ -1,9 +1,13 @@
-* {
-  font-family: 'Open Sans', sans-serif;
+body {
+  background-color: #3FC5EF;
+  opacity: 1;
+  font-family: 'Roboto', sans-serif;
 }
+
 html {
   padding: 1em;
 }
+
 .numInput {
   font-size: 1.5em;
   padding: 3px;
@@ -11,6 +15,34 @@ html {
   border-bottom: 2px solid black;
   box-shadow: none;
 }
+
 .numInput:focus {
   outline: none;
+}
+
+button {
+  background: #44B0DD;
+  border: 1px solid;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -khtml-border-radius: 20px;
+  border-radius: 20px;
+  color: white;
+  display: block;
+  font: italic 18px 'Roboto', sans-serif;
+  letter-spacing: 1px;
+  margin: auto;
+  padding: 7px 25px;
+  text-shadow: 0 1px 1px #000000;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background: #369EC0;
+  background-image: -webkit-linear-gradient(top, #369EC0, #01566F);
+  background-image: -moz-linear-gradient(top, #369EC0, #01566F);
+  background-image: -ms-linear-gradient(top, #369EC0, #01566F);
+  background-image: -o-linear-gradient(top, #369EC0, #01566F);
+  background-image: linear-gradient(to bottom, #369EC0, #01566F);
+  text-decoration: none;
 }
