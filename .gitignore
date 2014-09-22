@@ -32,3 +32,5 @@ build
 app/bower_components
 dist
 db
+
+**/.DS_Store
