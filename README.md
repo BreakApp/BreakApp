@@ -1,4 +1,4 @@
-BreakApp3
-=========
+Break App
+================
 
-An app to help you take a break
+An app that helps you take a break.
