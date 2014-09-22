@@ -3,18 +3,20 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-browserify');
-  grunt.loadNpmTasks('grunt-mocha');
-  grunt.loadNpmTasks('grunt-simple-mocha');
-  grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-express-server');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
 
   grunt.initConfig({
     clean: {
       dev: {
         src: 'build/'
+      },
+      dist: {
+        src: 'dist/'
       }
     },
 
@@ -22,7 +24,7 @@ module.exports = function(grunt) {
       dev: {
         expand: true,
         cwd: 'app/',
-        src: ['*.html', '*.css', 'views/**/*.html'],
+        src: ['*.html', 'css/*.css', 'views/**/*.html'],
         dest: 'build/',
         filter: 'isFile'
       }
@@ -36,14 +38,6 @@ module.exports = function(grunt) {
         },
         src: ['app/js/**/*.js'],
         dest: 'build/bundle.js'
-      },
-      angulartest: {
-        options: {
-          transform: ['debowerify'],
-          debug: true
-        },
-        src: ['test/angular/**/*test.js'],
-        dest: 'test/angular-testbundle.js'
       }
     },
 
@@ -51,68 +45,57 @@ module.exports = function(grunt) {
       options: {
         mangle: false
       },
-      dev: {
+      dist: {
         files: {
-          'build/bundle.js': ['build/bundle.js']
+          'dist/bundle.js': ['build/bundle.js']
         }
       }
     },
 
-    simplemocha: {
-      all: {
-        src: ['test/mocha/api/**/*.js']
+    htmlmin: {
+      dist: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: [{
+          expand: true,
+          cwd: 'app/',
+          src: ['**/*.html'],
+          dest: 'dist'
+        }]
       }
     },
-
-    karma: {
-      unit: {
-        configFile: 'karma.conf.js'
+    cssmin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'app/css/',
+          src: ['**/*.css'],
+          dest: 'dist/css/'
+        }]
       }
     },
 
     express: {
+      options: {
+        port: 3000
+      },
       dev: {
         options: {
-          options: 'server.js',
-          background: true
-        }
-      }
-    },
-
-    connect: {
-      dev: {
-        options: {
-          port: 3000,
-          base: 'build',
-          hostname: 'localhost',
-          open: true,
-          keepalive: true
+          script: 'server.js'
         }
       }
     },
 
     watch: {
-      angulartest: {
-        files: ['app/js/**/*.js', 'app/index.html', 'app/views/**/*.html'],
-        tasks: ['browserify:angulartest', 'karma:unit'],
-        options: {
-          spawn: false
-        }
-      },
-      express: {
-        files: ['app/js/**/*.js', 'app/index.html', 'app/views/**/*.html', 'server.js', 'models/*.js', 'routes/*.js'],
-        tasks: ['buildtest', 'express:dev'],
-        options: {
-          spawn: false
-        }
-      }
+      files: ['server.js', 'routes/**/*.js', 'app/**/*'],
+      tasks: ['build']
     }
   });
-  grunt.registerTask('build:dev', ['clean:dev', 'browserify:dev', 'uglify:dev', 'copy:dev']);
-  grunt.registerTask('angulartest', ['browserify:angulartest', 'karma:unit']);
-  grunt.registerTask('angulartestwatch', ['angulartest', 'watch:angulartest']);
-  grunt.registerTask('test', ['angulartest', 'simplemocha']);
-  grunt.registerTask('buildtest', ['test', 'build:dev']);
-  grunt.registerTask('serve', ['build:dev', 'connect:dev']);
-  grunt.registerTask('default', ['buildtest', 'watch:express']);
+  grunt.registerTask('build', ['clean:dev', 'browserify:dev', 'copy:dev']);
+  grunt.registerTask('default', ['build', 'express:dev', 'watch']);
+  grunt.registerTask('serve', ['default']);
+  grunt.registerTask('shrink', ['browserify:dev', 'uglify', 'htmlmin:dist', 'cssmin:dist']);
+  grunt.registerTask('production', ['clean:dist', 'shrink']);
 };
