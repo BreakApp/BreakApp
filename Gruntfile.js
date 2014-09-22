@@ -15,6 +15,11 @@ module.exports = function(grunt) {
       dev: {
         src: 'build/'
       },
+      frontend: {
+        expand: true,
+        cwd: 'build/',
+        src: ['**/*.html', '**/*.css']
+      },
       dist: {
         src: 'dist/'
       }
@@ -89,13 +94,22 @@ module.exports = function(grunt) {
     },
 
     watch: {
-      files: ['server.js', 'routes/**/*.js', 'app/**/*'],
-      tasks: ['build']
+      dev: {
+        files: ['server.js', 'routes/**/*.js', 'app/**/*'],
+        tasks: ['build']
+      },
+      frontend: {
+        files: ['server.js', 'routes/**/*.js', 'app/**/*'],
+        tasks: ['build:frontend']
+      }
+
     }
   });
   grunt.registerTask('build', ['clean:dev', 'browserify:dev', 'copy:dev']);
-  grunt.registerTask('default', ['build', 'express:dev', 'watch']);
+  grunt.registerTask('build:frontend', ['clean:frontend', 'copy:dev']);
+  grunt.registerTask('default', ['build', 'express:dev', 'watch:dev']);
   grunt.registerTask('serve', ['default']);
+  grunt.registerTask('frontend', ['build:frontend', 'express:dev', 'watch:frontend']);
   grunt.registerTask('shrink', ['browserify:dev', 'uglify', 'htmlmin:dist', 'cssmin:dist']);
   grunt.registerTask('production', ['clean:dist', 'shrink']);
 };
