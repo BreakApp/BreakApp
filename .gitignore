@@ -31,3 +31,4 @@ node_modules
 build
 app/bower_components
 dist
+db
