@@ -30,3 +30,4 @@ node_modules
 # my ignores
 build
 app/bower_components
+dist

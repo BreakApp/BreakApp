@@ -7,7 +7,7 @@ module.exports = function(app) {
     // breakScrambler object passed to controller
     var breakScrambler = {
       getBreak: function() {
-        return "Here's a break!";
+        return "Here's a break.";
       }
     };
     return breakScrambler;
