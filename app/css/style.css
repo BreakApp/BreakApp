@@ -1,21 +1,57 @@
-* {
-  font-family: 'Open Sans', sans-serif;
-}
-html {
-  padding: 1em;
-}
-.button {
-  text-decoration: none;
-  color: black;
-  background-color: none;
-  border: 2px solid black;
-  padding: 1em 2em;
-}
-.button:hover, .button:focus, .button:active {
-  background: black;
+body {
+  background-color: #3FC5EF;
+  font-family: 'Roboto', sans-serif;
   color: white;
 }
-.buttonwrapper {
-  margin: 2em auto;
+
+p {
+  text-align: center;
 }
 
+button {
+  background: #44B0DD;
+  font-family: 'Roboto', sans-serif;
+  border: 1px solid;
+  box-shadow: none;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -khtml-border-radius: 20px;
+  border-radius: 20px;
+  color: white;
+  display: block;
+  letter-spacing: 1px;
+  margin: auto;
+  padding: 7px 25px;
+  text-shadow: 0 1px 1px #000000;
+  text-transform: uppercase;
+  margin-bottom: 5%;
+}
+
+button:hover {
+  color: white;
+  background: #369EC0;
+  background-image: -webkit-linear-gradient(top, #369EC0, #01566F);
+  background-image: -moz-linear-gradient(top, #369EC0, #01566F);
+  background-image: -ms-linear-gradient(top, #369EC0, #01566F);
+  background-image: -o-linear-gradient(top, #369EC0, #01566F);
+  background-image: linear-gradient(to bottom, #369EC0, #01566F);
+  text-decoration: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+#txt {
+  text-align: center;
+  margin-bottom: 10%;
+  padding-top: 15%;
+  font-size: 5.5em;
+}
+
+footer li {
+  display: inline-block;
+  text-decoration: none;
+  float: right;
+  padding-right: 10%;
+}
