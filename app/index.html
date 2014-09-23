@@ -1,36 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name=viewport content="width=device-width, initial-scale=1">
-  <title>Take a Break!</title>
-  <link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="css/base.css" media="screen">
-  <link rel="stylesheet" href="css/layout.css" media="screen">
-  <link rel="stylesheet" href="css/skeleton.css" media="screen">
-  <link rel="stylesheet" href="css/style.css" media="screen">
-</head>
-<body onload="startTime()">
-  <main class="container">
-    <div onload="startTime()" class="" id="txt"></div>
-    <div ng-app="breakApp" ng-strict-di>
-      <div class="sixteen columns" ng-controller="breakController">
-        <div ng-view>
+  <head>
+    <meta charset="UTF-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <title>Take a Break!</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/modal.css" media="screen">
+    <link rel="stylesheet" href="css/base.css" media="screen">
+    <link rel="stylesheet" href="css/fonts.css" media="screen">
+    <link rel="stylesheet" href="css/layout.css" media="screen">
+    <link rel="stylesheet" href="css/skeleton.css" media="screen">
+    <link rel="stylesheet" href="css/style.css" media="screen">
+  </head>
+  <body onload="startTime()">
+    <main class="container">
+      <div onload="startTime()" id="txt"></div>
+      <div ng-app="breakApp" ng-strict-di>
+        <div class="sixteen columns" ng-controller="breakController">
+          <div ng-view>
+          </div>
         </div>
       </div>
-    </div>
-
-
-    <script src="bundle.js"></script>
-  </main>
+    </main>
+  </body>
   <footer>
     <ul>
-      <li>THIS</li>
-      <li>THIS</li>
-      <li>THIS</li>
+      <li>
+        <div>
+          <a href="#modal" class="btn go">
+            <span class="icon icon-user">
+            </span>
+          </a>
+        </div>
+        <div id="modal">
+          <div class="modal-content">
+            <div class="header">
+              <h2>
+                Sign-Up
+              </h2>
+            </div>
+            <div class="copy">
+              <form>
+                <fieldset>
+                  <input id='name' name='name' type='text' placeholder='Name: First and last name' required autofocus>
+                  <input id='email' name='email' type='email' placeholder='Email: example@domain.com' required>
+                </fieldset>
+                <fieldset>
+                  <button type='submit'>
+                    Submit
+                  </button>
+                </fieldset>
+              </form>
+            </div>
+            <div class="cf footer">
+              <a href="#" class="btn">
+                X
+              </a>
+            </div>
+          </div>
+          <div class="overlay">
+          </div>
+        </div>
+      </li>
+      <li>
+        <a href="#modal" class="btn go">
+          <span class="icon icon-cog" aria-hidden="true">
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="#modal" class="btn go">
+          <span class="icon icon-stopwatch">
+          </span>
+        </a>
+      </li>
     </ul>
   </footer>
-</body>
+  <script src="bundle.js"></script>
 </html>
 
 <script>
