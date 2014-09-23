@@ -23,7 +23,7 @@ module.exports = function(grunt) {
       frontend: {
         expand: true,
         cwd: 'build/',
-        src: ['**/*.html', '**/*.css']
+        src: ['**/*.html', 'css/**/*.*']
       },
       dist: {
         src: 'dist/'
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
       dev: {
         expand: true,
         cwd: 'app/',
-        src: ['*.html', 'css/*.css', 'views/**/*.html'],
+        src: ['*.html', 'css/**/*.*', 'views/**/*.html'],
         dest: 'build/',
         filter: 'isFile'
       }
@@ -147,7 +147,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['build', 'express:dev', 'watch:dev']);
   grunt.registerTask('serve', ['default']);
   grunt.registerTask('frontend', ['build:frontend', 'express:dev', 'watch:frontend']);
-  grunt.registerTask('test', ['browserify:angulartest', 'karma:unit', 'simplemocha']);
+  grunt.registerTask('test', ['jshint', 'browserify:angulartest', 'karma:unit', 'simplemocha']);
   grunt.registerTask('shrink', ['browserify:dev', 'uglify', 'htmlmin:dist', 'cssmin:dist']);
   grunt.registerTask('production', ['clean:dist', 'shrink']);
 };
