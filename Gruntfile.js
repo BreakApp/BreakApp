@@ -5,10 +5,15 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-express-server');
-  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-mocha');
+  grunt.loadNpmTasks('grunt-simple-mocha');
+  grunt.loadNpmTasks('grunt-karma');
+
+  var allJavaScriptFilePaths = ['app/js/**/*.js','models/**/*.js','routes/**/*.js', 'server.js'];
 
   grunt.initConfig({
     clean: {
@@ -35,6 +40,13 @@ module.exports = function(grunt) {
       }
     },
 
+    jshint: {
+      all: allJavaScriptFilePaths,
+      options: {
+        jshintrc: true
+      }
+    },
+
     browserify: {
       dev: {
         options: {
@@ -43,6 +55,31 @@ module.exports = function(grunt) {
         },
         src: ['app/js/**/*.js'],
         dest: 'build/bundle.js'
+      },
+      angulartest: {
+        options: {
+          transform: ['debowerify'],
+          debug: true
+        },
+        src: ['test/angular/**/*test.js'],
+        dest: 'test/angular-testbundle.js'
+      }
+    },
+
+    karma: {
+      unit: {
+        configFile: 'karma.conf.js',
+      },
+      continuous: {
+        configFile: 'karma.conf.js',
+        singleRun: true,
+        browsers: [ 'PhantomJS' ]
+      }
+    },
+
+    simplemocha: {
+      all: {
+        src: ['test/mocha/api/**/*.js']
       }
     },
 
@@ -110,6 +147,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['build', 'express:dev', 'watch:dev']);
   grunt.registerTask('serve', ['default']);
   grunt.registerTask('frontend', ['build:frontend', 'express:dev', 'watch:frontend']);
+  grunt.registerTask('test', ['browserify:angulartest', 'karma:unit', 'simplemocha']);
   grunt.registerTask('shrink', ['browserify:dev', 'uglify', 'htmlmin:dist', 'cssmin:dist']);
   grunt.registerTask('production', ['clean:dist', 'shrink']);
 };
