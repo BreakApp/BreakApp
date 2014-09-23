@@ -30,7 +30,7 @@ node_modules
 
 # my ignores
 build
-#app/bower_components
+app/bower_components
 .DS_Store
 test/testbundle.js
 test/bundle.js
