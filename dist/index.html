@@ -1,0 +1,15 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Take a Break!</title><link href="http://fonts.googleapis.com/css?family=Roboto:100" rel="stylesheet" type="text/css"><link rel="stylesheet" href="css/base.css" media="screen"><link rel="stylesheet" href="css/layout.css" media="screen"><link rel="stylesheet" href="css/skeleton.css" media="screen"><link rel="stylesheet" href="css/style.css" media="screen"></head><body onload="startTime()"><main class="container"><div onload="startTime()" class="" id="txt"></div><div ng-app="breakApp" ng-strict-di><div class="sixteen columns" ng-controller="breakController"><div ng-view></div></div></div><script src="bundle.js"></script></main><footer><ul><li>THIS</li><li>THIS</li><li>THIS</li></ul></footer></body></html><script>function startTime() {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML = h+":"+m+":"+s;
+    var t = setTimeout(function(){startTime()},500);
+}
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}</script>

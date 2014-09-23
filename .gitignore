@@ -31,7 +31,6 @@ node_modules
 # my ignores
 build
 app/bower_components
-dist
 .DS_Store
 test/testbundle.js
 test/bundle.js
