@@ -8,11 +8,12 @@ module.exports = function(app) {
 
     $scope.getBreak = function() {
       breakService.getBreak().success(function(data) {
- 	    	$scope.currentBreak = data[Math.floor((Math.random() * data.length))];
+        var randomSeed = Math.floor((Math.random() * data.length));
+ 	    	$scope.currentBreak = data[randomSeed];
       });
     };
 
-    $scope.getAllBreak = function() {
+    $scope.getAllBreaks = function() {
       breakService.getBreak().success(function(data) {
  	    	$scope.currentBreak = data;
       });
