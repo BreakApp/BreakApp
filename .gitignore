@@ -32,5 +32,7 @@ build
 app/bower_components
 dist
 db
-
-**/.DS_Store
+.DS_Store
+test/testbundle.js
+test/bundle.js
+test/angular-testbundle.js
