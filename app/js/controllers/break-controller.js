@@ -1,4 +1,4 @@
-// break controller 
+// break controller
 'use strict';
 
 module.exports = function(app) {
@@ -7,7 +7,16 @@ module.exports = function(app) {
     $scope.currentBreak = '';
 
     $scope.getBreak = function() {
-      $scope.currentBreak = breakService.getBreak();
-    }
+      breakService.getBreak().success(function(data) {
+        var randomSeed = Math.floor((Math.random() * data.length));
+ 	    	$scope.currentBreak = data[randomSeed];
+      });
+    };
+
+    $scope.getAllBreaks = function() {
+      breakService.getBreak().success(function(data) {
+ 	    	$scope.currentBreak = data;
+      });
+    };
   });
 };
