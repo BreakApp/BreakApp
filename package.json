@@ -20,9 +20,14 @@
   },
   "homepage": "https://github.com/jbkly/Angular-Averages",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.8.1",
     "express": "^4.9.4",
-    "mongoose": "^3.8.16"
+    "jwt-simple": "^0.2.0",
+    "moment": "^2.8.3",
+    "mongoose": "^3.8.16",
+    "passport": "^0.2.1",
+    "passport-http": "^0.2.2"
   },
   "devDependencies": {
     "angular": "^1.2.23",

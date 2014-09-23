@@ -18,5 +18,9 @@
   "dependencies": {
     "angular": "~1.2.24",
     "angular-route": "~1.2.24"
+  },
+  "devDependencies": {
+    "angular-cookies": "~1.2.25",
+    "angular-base64": "~2.0.2"
   }
 }
