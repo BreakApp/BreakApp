@@ -1,4 +1,5 @@
 // breakService
+'use strict';
 
 module.exports = function(app) {
   app.factory('breakService', function($http) {
