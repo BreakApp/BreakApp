@@ -3,11 +3,11 @@
 var User = require('../models/user');
 
 module.exports = function(app, passport){
-	var baseUrl = '/api/v_0_0_1/users';
-
-	app.post(baseUrl, function(req, res){
+	app.post('/api/v_0_0_1/users', function(req, res){
 		User.findOne({'basic.email': req.body.email}, function(err, user){
-			//add err
+			if(err) return res.status(500).json(err);
+
+      if(user) return res.status(401).json({'msg':'cannot create user'});
 		});
 
 		var newUser = new User();
@@ -15,12 +15,13 @@ module.exports = function(app, passport){
 		newUser.password = newUser.generateHash(req.body.password);
 
 		newUser.save(function(err, resUser){
-			//add err
-			return res.status(200).json({'jwt': resUser.createToken(app)});
+			if(err) return res.status(500).json(err);
+
+      return res.status(200).json({'jwt': resUser.createToken(app)});
 		});
 	});
 
-	app.get(baseUrl, passport.authenticate('basic', {session: false}), function(req, res){
+	app.get('/api/v_0_0_1/users', passport.authenticate('basic', {session: false}), function(req, res){
 		res.json({'jwt': req.user.createToken(app)});
 	});
 

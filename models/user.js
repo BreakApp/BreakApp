@@ -1,7 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose');
-var bcryt = require('bcrypt-nodejs');
+var bcrypt = require('bcrypt-nodejs');
 var jwt = require('jwt-simple');
 var moment = require('moment');
 
@@ -13,11 +13,11 @@ var userSchema = mongoose.Schema({
 });
 
 userSchema.methods.generateHash = function(password){
-	return bcryt.hashSync(password, bcryt.genSaltSync(8), null);
+	return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
 userSchema.methods.validPassword = function(password){
-	return bcryt.compareSync(password, this.basic.password);
+	return bcrypt.compareSync(password, this.basic.password);
 };
 
 userSchema.methods.createToken = function(app){
@@ -27,7 +27,7 @@ userSchema.methods.createToken = function(app){
 	var token = jwt.encode({
 		iss: self._id,
 		expires: expires
-	},app.get('jwtTokenSecret'));
+	}, app.get('jwtTokenSecret'));
 
 	return token;
 };

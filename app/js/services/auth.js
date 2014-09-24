@@ -11,7 +11,7 @@ module.exports = function(app){
 
 				$http.defaults.headers.common['jwt'] = $cookies.jwt;
 			}
-		}
+		};
 
 		return auth;
 	});

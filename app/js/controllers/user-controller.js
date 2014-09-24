@@ -8,14 +8,13 @@ module.exports = function(app) {
       $cookies.jwt = null;
     }
     if(!$cookies.jwt || $cookies.jwt.length >= 10){
-      return $location.path('/');
+      //return $location.path('/');
     }
     if($location.path() === '/signup'){
       $scope.newuser = true;
     }
 
     $scope.signIn = function(){
-      console.log('hey');
       $http.defaults.headers.common['Authorization'] = 'Basic ' + $base64.encode($scope.user.email + ':' + $scope.user.password);
       $http({
         method: 'GET',
@@ -23,7 +22,7 @@ module.exports = function(app) {
       })
       .success(function(data) {
         $cookies.jwt = data.jwt;
-        $location.path('/notes');
+        $location.path('/users');
       })
       .error(function(data) {
         console.log('error');
@@ -36,7 +35,6 @@ module.exports = function(app) {
     };
 
     $scope.createNewUser = function() {
-      console.log('clicked');
       $http({
         method: 'POST',
         url: '/api/v_0_0_1/users',
