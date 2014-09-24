@@ -21,6 +21,8 @@
     "angular-route": "~1.2.24"
   },
   "devDependencies": {
+    "angular-cookies": "~1.2.25",
+    "angular-base64": "~2.0.2",
     "angular-mocks": "~1.2.25",
     "sinon": "~1.10.3"
   }
