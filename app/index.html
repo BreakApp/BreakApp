@@ -22,60 +22,127 @@
         </div>
       </div>
     </main>
-  </body>
-  <footer>
-    <ul>
-      <li>
-        <div>
-          <a href="#modal" class="btn go">
-            <span class="icon icon-user">
+    <footer>
+      <ul>
+        <li>
+          <div>
+            <a href="#modal" class="btn go">
+              <span class="icon icon-user">
+              </span>
+            </a>
+          </div>
+          <div id="modal">
+            <div class="modal-content">
+              <div class="header">
+                <h2>
+                  Log-In
+                </h2>
+              </div>
+              <div class="copy">
+                <form>
+                  <fieldset>
+                    <input id='name' name='name' type='text' placeholder='Name: First and last name' required autofocus>
+                    <input id='email' name='email' type='email' placeholder='Email: example@domain.com' required>
+                    <input name="password" type="password" id="password" placeholder='Please enter Password' required>
+                    <input name="password" type="password" id="password" placeholder='Please verify Password' required>
+                  </fieldset>
+                  <fieldset>
+                    <button type='submit'>
+                      Submit
+                    </button>
+                    <a href="#">New User?</a>
+                  </fieldset>
+                </form>
+              </div>
+              <div class="cf footer">
+                <a href="" class="btn">
+                  x
+                </a>
+              </div>
+            </div>
+            <div class="overlay">
+            </div>
+          </div>
+        </li>
+        <li>
+          <a href="#modal2" class="btn go">
+            <span class="icon icon-stopwatch">
             </span>
           </a>
-        </div>
-        <div id="modal">
-          <div class="modal-content">
-            <div class="header">
-              <h2>
-                Log-In
-              </h2>
+          <div id="modal2">
+            <div class="modal2-content">
+              <div class="header">
+                <h2>
+                  Break Time
+                </h2>
+              </div>
+              <div class="copy">
+                <form>
+                  <label for="breaklength">
+                    Choose your break length?
+                  </label>
+                  <select id="breaklength" name="select">
+                    <option value="1">20 minutes</option>
+                    <option value="2">30 minutes</option>
+                    <option value="3">45 minutes</option>
+                    <option value="4">1 hour</option>
+                  </select>
+                  <fieldset>
+                    <button type='submit'>
+                      Submit
+                    </button>
+                  </fieldset>
+                </form>
+              </div>
+              <div class="cf footer">
+                <a href="#" class="btn">
+                  X
+                </a>
+              </div>
             </div>
-            <div class="copy">
-              <form>
-                <fieldset>
-                  <input id='name' name='name' type='text' placeholder='Name: First and last name' required autofocus>
-                  <input id='email' name='email' type='email' placeholder='Email: example@domain.com' required>
-                </fieldset>
-                <fieldset>
-                  <button type='submit'>
-                    Submit
-                  </button>
-                </fieldset>
-              </form>
-            </div>
-            <div class="cf footer">
-              <a href="#" class="btn">
-                X
-              </a>
+            <div class="overlay">
             </div>
           </div>
-          <div class="overlay">
+        </li>
+        <li>
+          <a href="#modal3" class="btn go">
+            <span class="icon icon-cog" aria-hidden="true">
+            </span>
+          </a>
+          <div id="modal3">
+            <div class="modal3-content">
+              <div class="header">
+                <h2>
+                  Create a Break
+                </h2>
+              </div>
+              <div class="copy">
+                <form>
+                  <fieldset>
+                    <input id='name' name='name' type='text' placeholder='Name of Break' required autofocus>
+                    <input id='name' name='name' type='text' placeholder='Break Description' required autofocus>
+                    <input id='name' name='name' type='text' placeholder='Break length (in minutes)' required autofocus>
+                  </fieldset>
+                  <fieldset>
+                    <button type='submit'>
+                      Submit
+                    </button>
+                  </fieldset>
+                </form>
+              </div>
+              <div class="cf footer">
+                <a href="#" class="btn">
+                  X
+                </a>
+              </div>
+            </div>
+            <div class="overlay">
+            </div>
           </div>
-        </div>
-      </li>
-      <li>
-        <a href="#modal" class="btn go">
-          <span class="icon icon-cog" aria-hidden="true">
-          </span>
-        </a>
-      </li>
-      <li>
-        <a href="#modal" class="btn go">
-          <span class="icon icon-stopwatch">
-          </span>
-        </a>
-      </li>
-    </ul>
-  </footer>
+        </li>
+      </ul>
+    </footer>
+  </body>
   <script src="bundle.js"></script>
 </html>
 

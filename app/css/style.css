@@ -16,6 +16,11 @@ a {
   text-decoration: none;
 }
 
+fieldset a {
+  font-size: .3em;
+
+}
+
 button {
   background: #44B0DD;
   font-family: 'Roboto', sans-serif;
