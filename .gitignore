@@ -22,6 +22,7 @@ build/Release
 # Dependency directory
 # Commenting this out is preferred by some people, see
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git-
+db
 node_modules
 
 # Users Environment Variables
@@ -30,7 +31,7 @@ node_modules
 # my ignores
 build
 app/bower_components
-dist
-db
-
-**/.DS_Store
+.DS_Store
+test/testbundle.js
+test/bundle.js
+test/angular-testbundle.js
