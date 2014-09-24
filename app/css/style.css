@@ -8,7 +8,7 @@ body {
 
 p {
   text-align: center;
-  font-size: 2.3em;
+  font-size: 2em;
   line-height: 1.5em;
 }
 
@@ -76,7 +76,7 @@ footer {
 }
 
 footer ul {
-  margin-right: 8%;
+  margin-right: 3%;
 }
 
 footer li {
@@ -84,5 +84,5 @@ footer li {
   display: inline;
   text-decoration: none;
   float: right;
-  padding-right: 5%;
+  padding-right: 4%;
 }
