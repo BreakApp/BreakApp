@@ -6,8 +6,12 @@ module.exports = function(app) {
 
     $scope.currentBreak = '';
 
+    var timeoutID;
 
-    $scope.breakTimer = function($scope.getBreak, 1200000)
+
+    $scope.breakTimer = function(){
+      timeoutID = window.setTimeout($scope.getBreak, 2000);
+    }
 
     $scope.getBreak = function() {
       breakService.getBreak().success(function(data) {
@@ -22,4 +26,4 @@ module.exports = function(app) {
       });
     };
   });
-};s
+};
