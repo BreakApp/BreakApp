@@ -6,6 +6,13 @@ module.exports = function(app) {
 
     $scope.currentBreak = '';
 
+    var timeoutID;
+
+
+    $scope.breakTimer = function(){
+      timeoutID = setTimeout($scope.getBreak, 2000);
+    }
+
     $scope.getBreak = function() {
       breakService.getBreak().success(function(data) {
         var randomSeed = Math.floor((Math.random() * data.length));
