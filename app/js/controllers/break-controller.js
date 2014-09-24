@@ -7,7 +7,8 @@ module.exports = function(app) {
     $scope.currentBreak = '';
 
 
-    var timer = window.setInterval(getBreak, 1200000);
+    $scope.breakTimer = function($scope.getBreak, 1200000)
+
     $scope.getBreak = function() {
       breakService.getBreak().success(function(data) {
         var randomSeed = Math.floor((Math.random() * data.length));
