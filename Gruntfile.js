@@ -23,7 +23,7 @@ module.exports = function(grunt) {
       frontend: {
         expand: true,
         cwd: 'build/',
-        src: ['**/*.html', '**/*.css']
+        src: ['**/*.html', 'css/**/*.*']
       },
       dist: {
         src: 'dist/'
@@ -34,7 +34,7 @@ module.exports = function(grunt) {
       dev: {
         expand: true,
         cwd: 'app/',
-        src: ['*.html', 'css/*.css', 'views/**/*.html'],
+        src: ['*.html', 'css/**/*.*', 'views/**/*.html'],
         dest: 'build/',
         filter: 'isFile'
       }
