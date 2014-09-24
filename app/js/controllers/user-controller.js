@@ -4,15 +4,15 @@
 module.exports = function(app) {
   app.controller('userController', function($scope, $http, $cookies, $base64, $location){
 
-    if($location.path() === '/signout'){
-      $cookies.jwt = null;
-    }
-    if(!$cookies.jwt || $cookies.jwt.length >= 10){
-      //return $location.path('/');
-    }
-    if($location.path() === '/signup'){
-      $scope.newuser = true;
-    }
+    // if($location.path() === '/signout'){
+    //   $cookies.jwt = null;
+    // }
+    // if(!$cookies.jwt || $cookies.jwt.length >= 10){
+    //   return $location.path('/');
+    // }
+    // if($location.path() === '/signup'){
+    //   $scope.newuser = true;
+    // }
 
     $scope.signIn = function(){
       $http.defaults.headers.common['Authorization'] = 'Basic ' + $base64.encode($scope.user.email + ':' + $scope.user.password);
@@ -42,7 +42,7 @@ module.exports = function(app) {
       })
       .success(function(data) {
         $cookies.jwt = data.jwt;
-        $location.path('/');
+        $location.path('/users');
       })
       .error(function(data) {
         console.log('error');
