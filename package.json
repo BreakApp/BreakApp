@@ -20,9 +20,14 @@
   },
   "homepage": "https://github.com/jbkly/Angular-Averages",
   "dependencies": {
+    "bcrypt-nodejs": "latest",
     "body-parser": "^1.8.1",
     "express": "^4.9.4",
-    "mongoose": "^3.8.16"
+    "jwt-simple": "^0.2.0",
+    "moment": "^2.8.3",
+    "mongoose": "^3.8.16",
+    "passport": "^0.2.1",
+    "passport-http": "^0.2.2"
   },
   "devDependencies": {
     "angular": "^1.2.23",
@@ -47,6 +52,7 @@
     "grunt-ng-annotate": "^0.4.0",
     "grunt-simple-mocha": "^0.4.0",
     "install": "^0.1.7",
+    "jquery": "^2.1.1",
     "karma": "^0.12.23",
     "karma-chrome-launcher": "^0.1.4",
     "karma-firefox-launcher": "^0.1.3",
