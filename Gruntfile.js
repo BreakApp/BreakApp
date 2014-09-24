@@ -132,11 +132,11 @@ module.exports = function(grunt) {
 
     watch: {
       dev: {
-        files: ['server.js', 'routes/**/*.js', 'app/**/*'],
+        files: ['server.js', 'routes/**/*.js', 'app/js/**/*', 'app/**/*.html', 'app/css/**/*'],
         tasks: ['build']
       },
       frontend: {
-        files: ['server.js', 'routes/**/*.js', 'app/**/*'],
+        files: ['server.js', 'routes/**/*.js', 'app/js/**/*', 'app/**/*.html', 'app/css/**/*'],
         tasks: ['build:frontend']
       }
 
@@ -147,7 +147,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['build', 'express:dev', 'watch:dev']);
   grunt.registerTask('serve', ['default']);
   grunt.registerTask('frontend', ['build:frontend', 'express:dev', 'watch:frontend']);
-  grunt.registerTask('test', ['browserify:angulartest', 'karma:unit', 'simplemocha']);
+  grunt.registerTask('test', ['jshint', 'browserify:angulartest', 'karma:unit', 'simplemocha']);
   grunt.registerTask('shrink', ['browserify:dev', 'uglify', 'htmlmin:dist', 'cssmin:dist']);
   grunt.registerTask('production', ['clean:dist', 'shrink']);
 };
