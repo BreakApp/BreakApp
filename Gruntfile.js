@@ -37,6 +37,13 @@ module.exports = function(grunt) {
         src: ['*.html', 'css/**/*.*', 'views/**/*.html'],
         dest: 'build/',
         filter: 'isFile'
+      },
+      distfonts: {
+        expand: true,
+        cwd: 'app/css/fonts/',
+        src: '**/*',
+        dest: 'dist/css/fonts/',
+        filter: 'isFile'
       }
     },
 
@@ -149,5 +156,5 @@ module.exports = function(grunt) {
   grunt.registerTask('frontend', ['build:frontend', 'express:dev', 'watch:frontend']);
   grunt.registerTask('test', ['jshint', 'browserify:angulartest', 'karma:unit', 'simplemocha']);
   grunt.registerTask('shrink', ['browserify:dev', 'uglify', 'htmlmin:dist', 'cssmin:dist']);
-  grunt.registerTask('production', ['clean:dist', 'shrink']);
+  grunt.registerTask('production', ['clean:dist', 'shrink', 'copy:distfonts']);
 };
