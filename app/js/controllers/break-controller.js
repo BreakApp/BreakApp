@@ -10,7 +10,7 @@ module.exports = function(app) {
 
 
     $scope.breakTimer = function(){
-      timeoutID = window.setTimeout($scope.getBreak, 2000);
+      timeoutID = setTimeout($scope.getBreak, 2000);
     }
 
     $scope.getBreak = function() {
