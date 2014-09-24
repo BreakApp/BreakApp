@@ -22,21 +22,94 @@
 
 /* #Media Queries
 ================================================== */
+	/*HD*/
+@media only screen and (max-width: 959px) {
+	#txt {
+	  font-size: 8.5em;
+	}
+}
 
-	/* Smaller than standard 960 (devices and browsers) */
-	@media only screen and (max-width: 959px) {}
+/*Desktop*/
+@media only screen and (max-width: 959px) {
+	#txt {
+	  font-size: 8.5em;
+	}
+}
 
-	/* Tablet Portrait size to standard 960 (devices and browsers) */
-	@media only screen and (min-width: 768px) and (max-width: 959px) {}
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+	#txt {
+	  font-size: 8.5em;
+	}
+}
 
-	/* All Mobile Sizes (devices and browser) */
-	@media only screen and (max-width: 767px) {}
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	#txt {
+	  font-size: 8.5em;
+	}
 
-	/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
-	@media only screen and (min-width: 480px) and (max-width: 767px) {}
+	#modal {
+  	margin: -65% 0 0 -40%;
+	}
+}
 
-	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-	@media only screen and (max-width: 479px) {}
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+	#txt {
+	  font-size: 8.3em;
+	  margin-top: 5%;
+	}
+
+	.icon-stopwatch:before, .icon-user:before, .icon-cog:before {
+		font-size: .7em;
+	}
+
+	#modal {
+  	margin: -65% 0 0 -40%;
+	}
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	#txt {
+	  font-size: 5.5em;
+	  margin-top: 5%;
+	}
+
+	p {
+		font-size: 1em;
+	}
+
+	.icon-stopwatch:before, .icon-user:before, .icon-cog:before {
+		font-size: .7em;
+	}
+
+	#modal {
+  	margin: -55% 0 0 -40%;
+	}
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+	#txt {
+	  font-size: 5.5em;
+	  margin-top: 10%;
+	}
+
+	p {
+		font-size: 1em;
+	}
+
+	.icon-stopwatch:before, .icon-user:before, .icon-cog:before {
+		font-size: .5em;
+	}
+
+	#modal {
+  	margin: -130% 0 0 -40%;
+	}
+
+}
 
 
 /* #Font-Face

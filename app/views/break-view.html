@@ -1,11 +1,11 @@
 <div ng-controller="breakController" >
   <div class="inputarea">
     <div>
-      <p>It's not good for you to sit still all day. Click the button to get an idea for a quick break...</p>
-      <button ng-click="getBreak()">Give me a break</button>
+      <p>It is not good for you to sit still all day. Click the button to get an idea for a quick break...</p>
+      <button href="" ng-click="breakTimer()">Start timer</button>
+      <button href="" ng-click="getBreak()">Give me a break now!</button>
     </div>
   </div>
-
   <div class="output" ng-show="currentBreak">
     <p><strong>Break: </strong>{{currentBreak.name}}</p>
     <p><strong>Instructions: </strong>{{currentBreak.instructions}}</p>
@@ -13,7 +13,7 @@
   </div>
 </div>
 
-<div ng-controller="userController">
+<!-- <div ng-controller="userController">
   <form name="userform" ng-hide="newuser">
     <input type="text" required ng-model="user.email" placeholder="email"/>
     <input type="password" required ng-model="user.password" placeholder="password"/>
@@ -27,4 +27,4 @@
     <input type="password" required ng-model="user.passwordConfirmation" placeholder="password confirmation"/>
     <button ng-disabled="newuserform.$invalid" ng-click="createNewUser()">Create New User</button>
   </form>
-</div>
+</div> -->

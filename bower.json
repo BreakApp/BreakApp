@@ -1,17 +1,18 @@
 {
   "name": "angular-averages",
   "version": "0.0.1",
-  "homepage": "https://github.com/jbkly/Angular-Averages",
+  "homepage": "https://github.com/BreakApp/BreakApp",
   "authors": [
     "Jordan Buckley <jordan@bkly.org>"
   ],
-  "description": "Simple Angular site to calculate mean, median, and mode of a series of numbers",
+  "description": "An app to help you take a break",
   "license": "MIT",
   "private": true,
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
+    "app/bower_components",
     "test",
     "tests"
   ],
@@ -21,6 +22,8 @@
   },
   "devDependencies": {
     "angular-cookies": "~1.2.25",
-    "angular-base64": "~2.0.2"
+    "angular-base64": "~2.0.2",
+    "angular-mocks": "~1.2.25",
+    "sinon": "~1.10.3"
   }
 }

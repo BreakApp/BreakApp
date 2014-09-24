@@ -15,7 +15,7 @@ module.exports = function(app) {
     // }
 
     $scope.signIn = function(){
-      $http.defaults.headers.common['Authorization'] = 'Basic ' + $base64.encode($scope.user.email + ':' + $scope.user.password);
+      $http.defaults.headers.common.Authorization = 'Basic ' + $base64.encode($scope.user.email + ':' + $scope.user.password);
       $http({
         method: 'GET',
         url: '/api/v_0_0_1/users'

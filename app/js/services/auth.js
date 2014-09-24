@@ -9,7 +9,7 @@ module.exports = function(app){
 					return 'noauth';
 				}
 
-				$http.defaults.headers.common['jwt'] = $cookies.jwt;
+				$http.defaults.headers.common.jwt = $cookies.jwt;
 			}
 		};
 
