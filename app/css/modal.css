@@ -1,4 +1,5 @@
-#modal, #modal2, #modal3 {
+#modal, #modal2, #modal3, .modal, 
+.modal.ng-enter {
   left: 50%;
   margin: -50% 0 0 -25%;
   opacity: 0;
@@ -16,10 +17,12 @@
 }
 
 /* Make the modal appear when targeted */
-#modal:target, #modal2:target, #modal3:target {
-    opacity: 1;
-    top: 50%;
-    visibility: visible;
+/*#modal:target, #modal2:target, #modal3:target, 
+#modal .targeted,*/
+.modal.targeted {
+    opacity: 1 !important;
+    top: 50% !important;
+    visibility: visible !important;
   }
 
 #modal .header, #modal .footer,

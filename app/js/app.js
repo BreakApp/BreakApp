@@ -14,6 +14,11 @@ require('./services/auth')(breakApp);
 require('./controllers/break-controller')(breakApp);
 require('./controllers/user-controller')(breakApp);
 
+// directive(s)
+require('./directives/login-directive')(breakApp);
+require('./directives/timer-directive')(breakApp);
+require('./directives/settings-directive')(breakApp);
+
 // router
 breakApp.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/', {
