@@ -22,17 +22,12 @@
 
 /* #Media Queries
 ================================================== */
-	/*HD*/
-@media only screen and (max-width: 959px) {
-	#txt {
-	  font-size: 8.5em;
-	}
-}
 
 /*Desktop*/
 @media only screen and (max-width: 959px) {
 	#txt {
 	  font-size: 8.5em;
+	  margin-top: 5%;
 	}
 }
 
@@ -40,25 +35,33 @@
 @media only screen and (max-width: 959px) {
 	#txt {
 	  font-size: 8.5em;
+	  margin-top: 4%;
 	}
 }
 
 /* Tablet Portrait size to standard 960 (devices and browsers) */
 @media only screen and (min-width: 768px) and (max-width: 959px) {
 	#txt {
-	  font-size: 8.5em;
+	  font-size: 10.5em;
+	  padding-top: 5%;
+	  margin-bottom: 9%;
 	}
 
 	#modal, #modal2, #modal3 {
   	margin: -65% 0 0 -40%;
+	}
+
+	p {
+		font-size: 1.2em;
+		padding-bottom: 0%;
 	}
 }
 
 /* All Mobile Sizes (devices and browser) */
 @media only screen and (max-width: 767px) {
 	#txt {
-	  font-size: 8.3em;
-	  margin-top: 5%;
+	  font-size: 9.3em;
+	  padding-top: 7%;
 	}
 
 	.icon-stopwatch:before, .icon-user:before, .icon-cog:before {
@@ -68,17 +71,21 @@
 	#modal, #modal2, #modal3 {
   	margin: -65% 0 0 -40%;
 	}
+
+	p {
+		font-size: 1.2em;
+	}
 }
 
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 	#txt {
-	  font-size: 5.5em;
+	  font-size: 8.5em;
 	  margin-top: 5%;
 	}
 
 	p {
-		font-size: 1em;
+		font-size: 1.2em;
 	}
 
 	.icon-stopwatch:before, .icon-user:before, .icon-cog:before {
@@ -94,7 +101,7 @@
 @media only screen and (max-width: 479px) {
 	#txt {
 	  font-size: 5.5em;
-	  margin-top: 10%;
+	  margin-top: 0%;
 	}
 
 	p {
