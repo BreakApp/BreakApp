@@ -11,8 +11,15 @@ module.exports = function(app) {
     //   return $location.path('/');
     // }
     // if($location.path() === '/signup'){
-    //   $scope.newuser = true;
+    //
     // }
+    $scope.newuser = false;
+
+    if(!$cookies.jwt || $cookies.jwt.length <= 10){
+      $scope.loggedIn = false;
+    } else {
+      $scope.loggedIn = true;
+    }
 
     $scope.toggleModal1 = function(){
       $scope.targeted1 = ($scope.targeted1 ? false : true);
@@ -32,7 +39,8 @@ module.exports = function(app) {
       })
       .success(function(data) {
         $cookies.jwt = data.jwt;
-        $location.path('/users');
+        $scope.loggedIn = true;
+        $location.path('/');
       })
       .error(function(data) {
         console.log('error');
@@ -52,12 +60,19 @@ module.exports = function(app) {
       })
       .success(function(data) {
         $cookies.jwt = data.jwt;
-        $location.path('/users');
+        $scope.loggedIn = true;
+        $location.path('/');
       })
       .error(function(data) {
         console.log('error');
         console.log(data);
       });
     };
+
+    $scope.signOut = function(){
+      $scope.loggedIn = false;
+      $cookies.jwt = null;
+    };
+
   });
 };
