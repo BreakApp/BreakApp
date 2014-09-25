@@ -6,6 +6,18 @@ body {
   padding-bottom: 80px;
 }
 
+body::after {
+  content: "";
+  background: url('http://img.wallpaperstock.net:81/seattle-town-wallpapers_6904_1920x1080.jpg');
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
 #txt {
   font-weight: 100;
   text-align: center;
