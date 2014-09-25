@@ -17,10 +17,10 @@
 
 /* Make the modal appear when targeted */
 #modal:target, #modal2:target, #modal3:target {
-    opacity: 1;
-    top: 50%;
-    visibility: visible;
-  }
+  opacity: 1;
+  top: 50%;
+  visibility: visible;
+}
 
 #modal .header, #modal .footer,
 #modal2 .header, #modal2 .footer,
@@ -33,6 +33,7 @@
   border: none;
   border-top: 1px solid #e7e7e7;
   border-radius: 0 0 5px 5px;
+  font-size: .5em;
 }
 
 #modal h2, #modal2 h2, #modal3 h2 {
@@ -47,8 +48,8 @@
 #modal .copy, #modal .header, #modal .footer,
 #modal2 .copy, #modal2 .header, #modal2 .footer,
 #modal3 .copy, #modal3 .header, #modal3 .footer {
-  padding: 18px;
-  padding-bottom: 27px;
+  padding: 10px;
+  padding-bottom: 30px;
 }
 
 .modal-content, .modal2-content, .modal3-content {
@@ -72,6 +73,3 @@
   width: 100%;
   z-index: 10;
 }
-
-
-
