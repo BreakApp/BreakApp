@@ -1,0 +1,38 @@
+<div>
+  <a href="" ng-click="toggleModal1()" class="btn go">
+    <span class="icon icon-user">
+    </span>
+  </a>
+</div>
+<div id="modal" class="modal" ng-class="{'targeted': targeted1 === true}">
+  <div class="modal-content">
+    <div class="header">
+      <h2>
+        Log-In
+      </h2>
+    </div>
+    <div class="copy">
+      <form>
+        <fieldset>
+          <input id='name' name='name' type='text' placeholder='Name: First and last name' required autofocus>
+          <input id='email' name='email' type='email' placeholder='Email: example@domain.com' required>
+          <input name="password" type="password" id="password" placeholder='Please enter Password' required>
+          <input name="password" type="password" id="password" placeholder='Please verify Password' required>
+        </fieldset>
+        <fieldset>
+          <button type='submit'>
+            Submit
+          </button>
+          <a href="">New User?</a>
+        </fieldset>
+      </form>
+    </div>
+    <div class="cf footer">
+      <a href="" ng-click="toggleModal1()"class="btn">
+        x
+      </a>
+    </div>
+  </div>
+  <div class="overlay">
+  </div>
+</div>
