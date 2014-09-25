@@ -31,7 +31,7 @@
             </form>
           </div>
           <div class="cf footer">
-            <a href="" class="btn">
+            <a href="" ng-click="toggleModal1()"class="btn">
               x
             </a>
           </div>
@@ -41,11 +41,11 @@
       </div>
     </li>
     <li>
-      <a href="#modal2" class="btn go">
+      <a href="" ng-click="toggleModal2()" class="btn go">
         <span class="icon icon-stopwatch">
         </span>
       </a>
-      <div id="modal2" ng-class="{'targeted': targeted2 === true}">
+      <div id="modal2" class="modal" ng-class="{'targeted': targeted2 === true}">
         <div class="modal2-content">
           <div class="header">
             <h2>
@@ -71,7 +71,7 @@
             </form>
           </div>
           <div class="cf footer">
-            <a href="#" class="btn">
+            <a href="" ng-click="toggleModal2()" class="btn">
               X
             </a>
           </div>
@@ -81,11 +81,11 @@
       </div>
     </li>
     <li>
-      <a href="#modal3" class="btn go">
+      <a href="" ng-click="toggleModal3()" class="btn go">
         <span class="icon icon-cog" aria-hidden="true">
         </span>
       </a>
-      <div id="modal3" ng-class="{'targeted': targeted3 === true}">
+      <div id="modal3" class="modal" ng-class="{'targeted': targeted3 === true}">
         <div class="modal3-content">
           <div class="header">
             <h2>
@@ -107,7 +107,7 @@
             </form>
           </div>
           <div class="cf footer">
-            <a href="#" class="btn">
+            <a href="" ng-click="toggleModal3()" class="btn">
               X
             </a>
           </div>

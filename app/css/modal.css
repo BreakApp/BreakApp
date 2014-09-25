@@ -19,10 +19,10 @@
 /* Make the modal appear when targeted */
 /*#modal:target, #modal2:target, #modal3:target, 
 #modal .targeted,*/
-.modal.ng-enter.ng-enter-active {
-    opacity: 1;
-    top: 50%;
-    visibility: visible;
+.modal.targeted {
+    opacity: 1 !important;
+    top: 50% !important;
+    visibility: visible !important;
   }
 
 #modal .header, #modal .footer,

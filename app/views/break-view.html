@@ -1,8 +1,8 @@
 <div ng-controller="breakController" >
   <div class="inputarea">
     <div>
-      <p>It is not good for you to sit still all day. Click the button to get an idea for a quick break...</p>
-      <button href="" ng-click="breakTimer()">Start timer</button>
+      <p>Don't sit still all day. Click the button to get an idea for a quick break...</p>
+      <button href="" ng-disabled="timerRunning" ng-click="breakTimer()">{{!timerRunning ? "Start timer" : "Timer running..."}}</button>
       <button href="" ng-click="getBreak()">Give me a break now!</button>
     </div>
   </div>
