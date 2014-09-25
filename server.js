@@ -24,10 +24,6 @@ app.use(bodyparser.json());
 require('./routes/break-routes')(app, jwtauth.auth);
 require('./routes/user-routes')(app, passport);
 
-//If we need body parser, we will say: app.use(bodyparser.json());
-// Our route to the breaks db, it will be different that this route: require('./routes/note-routes')(app);
-// Our route to the users db
-
 var server = http.createServer(app);
 
 server.listen(process.env.PORT || 3000, function() {
