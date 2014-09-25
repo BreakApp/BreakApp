@@ -95,3 +95,13 @@ footer li {
   float: right;
   padding-right: 4%;
 }
+
+.output {
+  width: auto;
+  border: 1px solid white;
+  padding-top: 1em;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -khtml-border-radius: 20px;
+  border-radius: 20px;
+}
