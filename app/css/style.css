@@ -3,13 +3,22 @@ body {
   font-family: 'Roboto', sans-serif;
   color: white;
   padding: 10px;
-  padding-bottom: 81px;   /* Height of the footer */
+  padding-bottom: 80px;
+}
+
+#txt {
+  font-weight: 100;
+  text-align: center;
+  margin-bottom: 14%;
+  padding-top: 14%;
+  font-size: 13.5em;
 }
 
 p {
   text-align: center;
-  font-size: 2em;
+  font-size: 1.7em;
   line-height: 1.5em;
+  padding-bottom: 2%;
 }
 
 a {
@@ -18,7 +27,6 @@ a {
 
 fieldset a {
   font-size: .3em;
-
 }
 
 button {
@@ -31,12 +39,10 @@ button {
   -khtml-border-radius: 20px;
   border-radius: 20px;
   color: white;
-  display: block;
   letter-spacing: 1px;
-  margin: auto;
   padding: 7px 25px;
   text-transform: uppercase;
-  margin-bottom: 5%;
+  margin-bottom: 3%;
 }
 
 button:hover {
@@ -54,23 +60,20 @@ button:focus {
   outline: none;
 }
 
-#txt {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  text-align: center;
-  margin-bottom: 15%;
-  padding-top: 10%;
-  font-size: 15.5em;
-}
-
 input, label {
   display: block;
   margin: auto;
 }
 
-#container {
-   min-height: 100%;
-   position: relative;
+ul {
+  margin: 0 auto;
+  text-align: center;
+}
+
+li {
+  font-size: 3em;
+  display: inline;
+  text-decoration: none;
 }
 
 footer {
@@ -85,9 +88,6 @@ footer ul {
 }
 
 footer li {
-  font-size: 3em;
-  display: inline;
-  text-decoration: none;
   float: right;
   padding-right: 4%;
 }

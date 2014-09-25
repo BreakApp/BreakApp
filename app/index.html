@@ -16,7 +16,7 @@
     <main class="container">
       <div onload="startTime()" id="txt"></div>
       <div ng-app="breakApp" ng-strict-di>
-        <div class="sixteen columns" ng-controller="breakController">
+        <div ng-controller="breakController">
           <div ng-view>
           </div>
         </div>
@@ -50,7 +50,12 @@
                     <button type='submit'>
                       Submit
                     </button>
-                    <a href="#">New User?</a>
+                    <a href="#">
+                      New User?
+                    </a>
+                    <button type='log-out'>
+                      Log Out
+                    </button>
                   </fieldset>
                 </form>
               </div>
@@ -79,7 +84,7 @@
               <div class="copy">
                 <form>
                   <label for="breaklength">
-                    Choose your break length?
+                    Choose amount of time between breaks?
                   </label>
                   <select id="breaklength" name="select">
                     <option value="1">20 minutes</option>

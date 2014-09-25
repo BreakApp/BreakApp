@@ -29,9 +29,7 @@
 .icon-user:before {
   content: "\e601";
 }
-.icon-cogs:before {
-  content: "\e602";
-}
+
 .icon-cog:before {
   content: "\e603";
 }
