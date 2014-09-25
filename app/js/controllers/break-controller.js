@@ -6,11 +6,13 @@ module.exports = function(app) {
 
     $scope.currentBreak = '';
 
-    var timeoutID;
+    $scope.timeoutID;
+    $scope.timerLength = 2000;
 
 
     $scope.breakTimer = function(){
-      timeoutID = setTimeout($scope.getBreak, 2000);
+      $scope.currentBreak = '';
+      $scope.timeoutID = setTimeout($scope.getBreak, $scope.timerLength);
     };
 
     $scope.getBreak = function() {
