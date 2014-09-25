@@ -21,13 +21,21 @@
         </div>
       </div>
     </main>
-    <div footer-directive></div>
+    <div ng-controller="userController">
+      <footer>
+        <ul>
+          <li><div login-directive></div></li>
+          <li><div timer-directive></div></li>
+          <li><div settings-directive></div></li>
+        </ul>
+      </footer>
+    </div>
   </body>
   <script src="bundle.js"></script>
 </html>
 
 <script>
-function startTime() {
+  function startTime() {
     var today=new Date();
     var h=today.getHours();
     var m=today.getMinutes();
@@ -36,10 +44,10 @@ function startTime() {
     s = checkTime(s);
     document.getElementById('txt').innerHTML = h+":"+m+":"+s;
     var t = setTimeout(function(){startTime()},500);
-}
+  }
 
-function checkTime(i) {
+  function checkTime(i) {
     if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
-}
+  }
 </script>

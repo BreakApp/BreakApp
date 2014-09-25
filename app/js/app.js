@@ -3,9 +3,8 @@ require('angular/angular');
 require('angular-route');
 require('angular-cookies');
 require('angular-base64');
-require('angular-animate');
 
-var breakApp = angular.module('breakApp', ['ngRoute', 'ngCookies', 'base64', 'ngAnimate']);
+var breakApp = angular.module('breakApp', ['ngRoute', 'ngCookies', 'base64']);
 
 // service(s)
 require('./services/break-service')(breakApp);
@@ -16,7 +15,9 @@ require('./controllers/break-controller')(breakApp);
 require('./controllers/user-controller')(breakApp);
 
 // directive(s)
-require('./directives/footer-directive')(breakApp);
+require('./directives/login-directive')(breakApp);
+require('./directives/timer-directive')(breakApp);
+require('./directives/settings-directive')(breakApp);
 
 // router
 breakApp.config(['$routeProvider', function($routeProvider) {

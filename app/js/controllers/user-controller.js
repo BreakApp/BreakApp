@@ -14,6 +14,16 @@ module.exports = function(app) {
     //   $scope.newuser = true;
     // }
 
+    $scope.toggleModal1 = function(){
+      $scope.targeted1 = ($scope.targeted1 ? false : true);
+    };
+    $scope.toggleModal2 = function(){
+      $scope.targeted2 = ($scope.targeted2 ? false : true);
+    };
+    $scope.toggleModal3 = function(){
+      $scope.targeted3 = ($scope.targeted3 ? false : true);
+    };
+
     $scope.signIn = function(){
       $http.defaults.headers.common.Authorization = 'Basic ' + $base64.encode($scope.user.email + ':' + $scope.user.password);
       $http({
