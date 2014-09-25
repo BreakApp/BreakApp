@@ -44,7 +44,7 @@ describe('breakController', function() {
     });
 
     it('starts the timer running when breakTimer is called', function() {
-      ctrl = $controllerConstructor('breakController', {$scope: scope, _break});
+      ctrl = $controllerConstructor('breakController', {$scope: scope}, {breakService: _breakService});
       scope.breakTimer();
       expect(scope.timerRunning).toBeTruthy();
     });
