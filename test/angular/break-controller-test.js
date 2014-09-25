@@ -10,9 +10,10 @@ describe('breakController', function() {
 
   beforeEach(angular.mock.module('breakApp'));
 
-  beforeEach(angular.mock.inject(function($controller, $rootScope) {
+  beforeEach(angular.mock.inject(function($controller, $rootScope, breakService) {
     scope = $rootScope.$new();
     $controllerConstructor = $controller;
+    _breakService = breakService;
   }));
 
   it('creates a new controller', function() {
@@ -20,26 +21,33 @@ describe('breakController', function() {
     expect(typeof breakController).toBe('object'); 
   });
 
-  describe('rest requests', function() {
+  describe('breakController functions', function() {
     var ctrl;
-    beforeEach(angular.mock.inject(function(_$httpBackend_) {
-      $httpBackend = _$httpBackend_; 
-      $httpBackend.expectGET('/api/v_0_0_1/breakideas').respond(200);
-    }));
+    // beforeEach(angular.mock.inject(function(_$httpBackend_) {
+    //   $httpBackend = _$httpBackend_; 
+    //   $httpBackend.expectGET('/api/v_0_0_1/breakideas').respond(200);
+    // }));
 
-    afterEach(function() {
-      $httpBackend.verifyNoOutstandingExpectation();
-      $httpBackend.verifyNoOutstandingRequest();
+    // afterEach(function() {
+    //   $httpBackend.verifyNoOutstandingExpectation();
+    //   $httpBackend.verifyNoOutstandingRequest();
+    // });
+
+    it('starts with no current break set', function() {
+      ctrl = $controllerConstructor('breakController', {$scope: scope});
+      expect(scope.currentBreak).toEqual('');
     });
 
-    // it('should make a get request', function() {
-    //   ctrl = $controllerConstructor('notesController', {$scope: scope});
+    it('starts with the timer not running', function() {
+      ctrl = $controllerConstructor('breakController', {$scope: scope});
+      expect(scope.timerRunning).toEqual(false);
+    });
 
-    //   $httpBackend.flush();
-
-    //   expect(Array.isArray(scope.notes)).toBeTruthy();
-    //   expect(scope.notes[0].noteBody).toEqual('test note');
-    // });
+    it('starts the timer running when breakTimer is called', function() {
+      ctrl = $controllerConstructor('breakController', {$scope: scope, _break});
+      scope.breakTimer();
+      expect(scope.timerRunning).toBeTruthy();
+    });
 
     // it('should be able to create a new note', function() {
     //   $httpBackend.expectPOST('/api/v_0_0_1/notes').respond(200, {'noteBody': 'test note'});
