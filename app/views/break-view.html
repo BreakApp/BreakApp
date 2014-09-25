@@ -1,15 +1,40 @@
 <div ng-controller="breakController" >
   <div class="inputarea">
     <div>
-      <p>It is not good for you to sit still all day. Click the button to get an idea for a quick break...</p>
-      <button href="" ng-click="breakTimer()">Start timer</button>
-      <button href="" ng-click="getBreak()">Give me a break now!</button>
+      <p class="sixteen columns">It is not good for you to sit still all day. Click the button to get an idea for a quick break...</p>
+      <ul>
+        <li>
+          <button href="" ng-click="breakTimer()">
+            Start timer
+          </button>
+        </li>
+        <li>
+          <button href="" ng-click="getBreak()">
+            Break Now!
+          </button>
+        </li>
+      </ul>
     </div>
   </div>
   <div class="output" ng-show="currentBreak">
-    <p><strong>Break: </strong>{{currentBreak.name}}</p>
-    <p><strong>Instructions: </strong>{{currentBreak.instructions}}</p>
-    <p><strong>Estimated time: </strong>{{currentBreak.minutes}} minutes.</p>
+    <p>
+      <strong>
+        Break:
+      </strong>
+      {{currentBreak.name}}
+    </p>
+    <p>
+      <strong>
+        Instructions:
+      </strong>
+      {{currentBreak.instructions}}
+    </p>
+    <p>
+      <strong>
+        Estimated time:
+      </strong>
+      {{currentBreak.minutes}} minutes.
+    </p>
   </div>
 </div>
 
