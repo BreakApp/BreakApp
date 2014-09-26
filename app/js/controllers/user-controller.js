@@ -81,8 +81,8 @@ module.exports = function(app) {
       $cookies.jwt = null;
     };
 
-    $scope.newBreak = function(form) {
-      breakService.newBreak($scope.newBreak)
+    $scope.newBreak = function() {
+      breakService.newBreak($scope.breakname, $scope.instructions, $scope.minutes)
         .success(function(data) {
           $scope.breaks.push(data);
           $scope.newBreakIdea = '';

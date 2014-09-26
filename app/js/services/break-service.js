@@ -4,9 +4,7 @@
 module.exports = function(app) {
   app.factory('breakService', function($http) {
     // helper functions...
-    var parseBreak = function(breakidea) {
-      return {name: breakidea.name, instructions: breakidea.instructions, minutes: breakidea.minutes};
-    };
+
     // breakScrambler object passed to controller
     var breakScrambler = {
       getBreak: function() {
@@ -19,8 +17,8 @@ module.exports = function(app) {
         });
         return dbBreak;
       },
-      newBreak: function(breakidea) {
-        var dbsubmitBreak = $http.post('/api/v_0_0_1/breakideas', parseBreak(breakidea)).error(function(data, status) {
+      newBreak: function(breakname, instructions, minutes) {
+        var dbsubmitBreak = $http.post('/api/v_0_0_1/breakideas', {"name": breakname, "instructions": instructions, "minutes": minutes}).error(function(data, status) {
           console.log('error!');
           console.log(status);
         });
