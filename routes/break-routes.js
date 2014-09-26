@@ -11,13 +11,4 @@ module.exports = function(app) {
       return res.json(breakideas);
     });
   });
-
-  // app.get(baseUrl + '/:id', function(req, res) {
-  //   studyBreak.findOne({'_id': req.params.id}, function(err, studybreak) {
-  //     if (err) return res.status(500).json(err);
-  //     return res.json(studybreak);
-  //   });
-  // });
 };
-
-//where we add the functionality for returning a random break?

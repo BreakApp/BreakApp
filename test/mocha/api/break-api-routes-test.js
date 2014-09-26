@@ -8,7 +8,7 @@ describe('breakRoutes', function() {
 
   var apiPath = '/api/v_0_0_1/breakideas';
 
-  it('makes a successful GET request to the DB', function(done) {
+  it('makes a successful GET request to the breaks DB', function(done) {
     chai.request('http://localhost:3000')
       .get(apiPath)
       .res(function(res) {
@@ -17,7 +17,7 @@ describe('breakRoutes', function() {
       });
   });
 
-  it('gets back json from the DB', function(done) {
+  it('gets back json from the breaks DB', function(done) {
     chai.request('http://localhost:3000')
       .get(apiPath)
       .res(function(res) {
