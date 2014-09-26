@@ -26,7 +26,7 @@ module.exports = function(app) {
 
     $scope.setTimerLength = function(){
       breakService.setTimerLength($scope.selectTime);
-    }
+    };
 
     $scope.toggleModal1 = function(){
       $scope.targeted1 = ($scope.targeted1 ? false : true);
