@@ -80,7 +80,7 @@ module.exports = function(app) {
       $cookies.jwt = null;
     };
 
-    $scope.newBreak = function(form) {
+    $scope.newBreak = function(form) { // jshint ignore:line
       breakService.newBreak($scope.breakname, $scope.instructions, $scope.minutes);
     };
 
