@@ -6,37 +6,21 @@
       </p>
       <ul>
         <li>
-          <button href="" ng-disabled="timerRunning" ng-click="breakTimer()">
+          <button class="start" href="" ng-disabled="timerRunning" ng-click="breakTimer()">
             {{!timerRunning ? "Start timer" : "Timer running..."}}
           </button>
         </li>
         <li>
           <button href="" ng-click="getBreak()">
-            Give me a break now!
+            Break now
           </button>
         </li>
       </ul>
     </div>
   </div>
   <div class="output" ng-show="currentBreak">
-    <p>
-      <strong>
-        Break:
-      </strong>
-      {{currentBreak.name}}
-    </p>
-    <p>
-      <strong>
-        Instructions:
-      </strong>
-      {{currentBreak.instructions}}
-    </p>
-    <p>
-      <strong>
-        Estimated time:
-      </strong>
-      {{currentBreak.minutes}} minutes.
-    </p>
+    <p><strong>{{currentBreak.name}} </strong>{{currentBreak.instructions}}</p>
+    <p>Estimated time: {{currentBreak.minutes}} minutes.</p>
   </div>
 </div>
 

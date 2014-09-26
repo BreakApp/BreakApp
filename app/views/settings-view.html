@@ -1,4 +1,4 @@
-<a href="" ng-click="toggleModal3()" class="btn go">
+<a ng-show="loggedIn === true" href="" ng-click="toggleModal3()" class="btn go">
   <span class="icon icon-cog" aria-hidden="true">
   </span>
 </a>
@@ -29,6 +29,6 @@
       </a>
     </div>
   </div>
-  <div class="overlay">
+  <div class="overlay" ng-click="toggleModal3()">
   </div>
 </div>
