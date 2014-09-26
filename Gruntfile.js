@@ -40,9 +40,9 @@ module.exports = function(grunt) {
       },
       distfonts: {
         expand: true,
-        cwd: 'app/css/fonts/',
-        src: '**/*',
-        dest: 'dist/css/fonts/',
+        cwd: 'app/css/',
+        src: ['fonts/**/*', '**/*.jpg'],
+        dest: 'dist/css/',
         filter: 'isFile'
       }
     },
