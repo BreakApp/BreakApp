@@ -15,7 +15,6 @@ module.exports = function(app) {
     // }
 
     $scope.selectTime = 2000;
-    $scope.newBreakIdea = '';
     $scope.newuser = false;
 
     if(!$cookies.jwt || $cookies.jwt.length <= 10){
@@ -81,12 +80,8 @@ module.exports = function(app) {
       $cookies.jwt = null;
     };
 
-    $scope.newBreak = function() {
-      breakService.newBreak($scope.breakname, $scope.instructions, $scope.minutes)
-        .success(function(data) {
-          $scope.breaks.push(data);
-          $scope.newBreakIdea = '';
-        });
+    $scope.newBreak = function(form) {
+      breakService.newBreak($scope.breakname, $scope.instructions, $scope.minutes);
     };
 
   });
