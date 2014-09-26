@@ -50,37 +50,10 @@ describe('breakController', function() {
       expect(scope.timerRunning).toBeTruthy();
     });
 
-    it('sets a current break when getBreak is called', function() {
+    it('stops timer running when getBreak is called', function() {
       ctrl = $controllerConstructor('breakController', {$scope: scope});
       scope.getBreak();
-      expect(scope.currentBreak).toBeTruthy();
+      expect(scope.timerRunning).toBeFalsy();
     });
-
-    // it('should be able to create a new note', function() {
-    //   $httpBackend.expectPOST('/api/v_0_0_1/notes').respond(200, {'noteBody': 'test note'});
-    //   ctrl = $controllerConstructor('notesController', {$scope: scope});
-    //   scope.newNote = {'noteBody': 'test note'};
-    //   scope.saveNewNote();
-
-    //   $httpBackend.flush();
-    // });
-
-    // it('should be able edit a note', function() {
-    //   $httpBackend.expectPUT('/api/v_0_0_1/notes/1').respond(202, {});
-    //   $httpBackend.expectGET('/api/v_0_0_1/notes').respond(200, [{}]);
-    //   ctrl = $controllerConstructor('notesController', {$scope: scope});
-    //   scope.saveNote({_id: '1'});
-
-    //   $httpBackend.flush();
-    // });
-
-    // it('should be able to delete a note', function() {
-    //   $httpBackend.expectDELETE('/api/v_0_0_1/notes/1').respond(200, {});
-    //   $httpBackend.expectGET('/api/v_0_0_1/notes').respond(200, [{}]);
-    //   ctrl = $controllerConstructor('notesController', {$scope: scope});
-    //   scope.deleteNote({_id: '1'});
-
-    //   $httpBackend.flush();
-    // });
   });
 });
