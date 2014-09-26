@@ -2,7 +2,7 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('userController', function($scope, $http, $cookies, $base64, $location){
+  app.controller('userController', function($scope, $http, $cookies, $base64, $location, breakService){
 
     // if($location.path() === '/signout'){
     //   $cookies.jwt = null;
@@ -13,6 +13,11 @@ module.exports = function(app) {
     // if($location.path() === '/signup'){
     //   $scope.newuser = true;
     // }
+    $scope.selectTime = 2000;
+
+    $scope.setTimerLength = function(){
+      breakService.setTimerLength($scope.selectTime);
+    }
 
     $scope.toggleModal1 = function(){
       $scope.targeted1 = ($scope.targeted1 ? false : true);

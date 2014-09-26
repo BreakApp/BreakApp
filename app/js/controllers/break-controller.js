@@ -5,22 +5,25 @@ module.exports = function(app) {
   app.controller('breakController', function($scope, breakService) {
 
     $scope.currentBreak = '';
-    $scope.timerLength = 2000;
-    $scope.timerRunning = false;
-
+    //$scope.timerRunning = false;
+    $scope.toggleBreak = false;
 
     $scope.breakTimer = function(){
       $scope.currentBreak = '';
-      $scope.timeoutID = setTimeout($scope.getBreak, $scope.timerLength);
+      $scope.timeoutID = setTimeout($scope.getBreak, breakService.getTimerLength());
       $scope.timerRunning = true;
     };
 
     $scope.getBreak = function() {
       $scope.timerRunning = false;
-      breakService.getBreak().success(function(data) {
-        var randomSeed = Math.floor((Math.random() * data.length));
- 	    	$scope.currentBreak = data[randomSeed];
-      });
+      if(!$scope.currentBreak){
+        breakService.getBreak().success(function(data) {
+          var randomSeed = Math.floor((Math.random() * data.length));
+          $scope.currentBreak = data[randomSeed];
+        });
+      } else {
+        $scope.currentBreak = '';
+      }
     };
 
     $scope.getAllBreaks = function() {

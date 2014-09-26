@@ -16,6 +16,13 @@ module.exports = function(app) {
           console.log(status);
         });
         return dbBreak;
+      },
+      timerLength: 2000,
+      getTimerLength: function() {
+        return this.timerLength;
+      },
+      setTimerLength: function(timer) {
+        this.timerLength = timer;
       }
     };
     return breakScrambler;
