@@ -1,4 +1,4 @@
-<a href="" ng-click="toggleModal3()" class="btn go">
+<a ng-show="loggedIn === true" href="" ng-click="toggleModal3()" class="btn go">
   <span class="icon icon-cog" aria-hidden="true">
   </span>
 </a>
@@ -10,14 +10,14 @@
       </h2>
     </div>
     <div class="copy">
-      <form>
+      <form name="newbreakform">
         <fieldset>
-          <input id='name' name='name' type='text' placeholder='Name of Break' required autofocus>
-          <input id='name' name='name' type='text' placeholder='Break Description' required autofocus>
-          <input id='name' name='name' type='text' placeholder='Break length (in minutes)' required autofocus>
+          <input id='name' name='name' ng-model="newBreakIdea.name" type='text' placeholder='Name of Break' required autofocus>
+          <input id='name' name='name' ng-model="newBreakIdea.instructions" type='text' placeholder='Break Description' required autofocus>
+          <input id='name' name='name' ng-model="newBreakIdea.minutes" type='text' placeholder='Break length (in minutes)' required autofocus>
         </fieldset>
         <fieldset>
-          <button type='submit'>
+          <button type='submit' ng-disabled="newbreakform.$invalid" data-ng-click="newBreak(newbreakform); toggleModal3()">
             Submit
           </button>
         </fieldset>
@@ -29,6 +29,6 @@
       </a>
     </div>
   </div>
-  <div class="overlay">
+  <div class="overlay" ng-click="toggleModal3()">
   </div>
 </div>

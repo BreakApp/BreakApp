@@ -11,9 +11,18 @@ module.exports = function(app) {
     //   return $location.path('/');
     // }
     // if($location.path() === '/signup'){
-    //   $scope.newuser = true;
+    //
     // }
+
     $scope.selectTime = 2000;
+    $scope.newBreakIdea = '';
+    $scope.newuser = false;
+
+    if(!$cookies.jwt || $cookies.jwt.length <= 10){
+      $scope.loggedIn = false;
+    } else {
+      $scope.loggedIn = true;
+    }
 
     $scope.setTimerLength = function(){
       breakService.setTimerLength($scope.selectTime);
@@ -37,7 +46,8 @@ module.exports = function(app) {
       })
       .success(function(data) {
         $cookies.jwt = data.jwt;
-        $location.path('/users');
+        $scope.loggedIn = true;
+        $location.path('/');
       })
       .error(function(data) {
         console.log('error');
@@ -57,12 +67,27 @@ module.exports = function(app) {
       })
       .success(function(data) {
         $cookies.jwt = data.jwt;
-        $location.path('/users');
+        $scope.loggedIn = true;
+        $location.path('/');
       })
       .error(function(data) {
         console.log('error');
         console.log(data);
       });
     };
+
+    $scope.signOut = function(){
+      $scope.loggedIn = false;
+      $cookies.jwt = null;
+    };
+
+    $scope.newBreak = function(form) {
+      breakService.newBreak($scope.newBreak)
+        .success(function(data) {
+          $scope.breaks.push(data);
+          $scope.newBreakIdea = '';
+        });
+    };
+
   });
 };

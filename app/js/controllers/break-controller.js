@@ -5,7 +5,7 @@ module.exports = function(app) {
   app.controller('breakController', function($scope, breakService) {
 
     $scope.currentBreak = '';
-    //$scope.timerRunning = false;
+    $scope.timerRunning = false;
     $scope.toggleBreak = false;
 
     $scope.breakTimer = function(){
@@ -15,7 +15,9 @@ module.exports = function(app) {
     };
 
     $scope.getBreak = function() {
-      $scope.timerRunning = false;
+      if($scope.timerRunning){
+        clearTimeout($scope.timeoutID);
+      }
       if(!$scope.currentBreak){
         breakService.getBreak().success(function(data) {
           var randomSeed = Math.floor((Math.random() * data.length));
@@ -24,6 +26,7 @@ module.exports = function(app) {
       } else {
         $scope.currentBreak = '';
       }
+      $scope.timerRunning = false;
     };
 
     $scope.getAllBreaks = function() {
