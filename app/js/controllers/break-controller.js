@@ -3,8 +3,6 @@
 
 module.exports = function(app) {
   app.controller('breakController', function($scope, breakService) {
-    var Notification = window.Notification || window.mozNotification || window.webkitNotification;
-    Notification.requestPermission(function (permission) {});
 
     $scope.currentBreak = '';
     $scope.timerRunning = false;
@@ -24,7 +22,7 @@ module.exports = function(app) {
         $scope.timerRunning = false;
       }
       if($scope.timerNotify){
-        window.show();
+        window.show(); // jshint ignore:line
       }
       $scope.timerNotify = false;
       if(!$scope.currentBreak){

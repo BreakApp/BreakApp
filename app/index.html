@@ -51,6 +51,7 @@
     return i;
   }
 
+  /* jshint ignore:start */
   var Notification = window.Notification || window.mozNotification || window.webkitNotification;
   Notification.requestPermission(function (permission) {});
   function show(){
@@ -61,4 +62,5 @@
     );
     return false;
   }
+  /* jshint ignore:end */
 </script>
