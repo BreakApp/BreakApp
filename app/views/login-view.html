@@ -18,7 +18,7 @@
           <input name="password" type="password" ng-model="user.password" id="password" placeholder='Please enter Password' required>
         </fieldset>
         <fieldset>
-          <button ng-disabled="userform.$invalid" ng-click="signIn()">
+          <button ng-disabled="userform.$invalid" ng-click="signIn(); toggleModal1()">
             Sign In
           </button>
         </fieldset>
@@ -33,7 +33,7 @@
           <input name="password" type="password" ng-model="user.passwordConfirmation" id="password" placeholder='Please verify Password' required>
         </fieldset>
         <fieldset>
-          <button ng-disabled="newUserform.$invalid" ng-click="createNewUser(); newuser = !newuser">
+          <button ng-disabled="newUserform.$invalid" ng-click="createNewUser(); newuser = !newuser; toggleModal1()">
             Create New User
           </button>
         </fieldset>

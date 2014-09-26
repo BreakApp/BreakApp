@@ -16,6 +16,20 @@ module.exports = function(app) {
           console.log(status);
         });
         return dbBreak;
+      },
+      newBreak: function(breakname, instructions, minutes) {
+        var dbsubmitBreak = $http.post('/api/v_0_0_1/breakideas', {"name": breakname, "instructions": instructions, "minutes": minutes}).error(function(data, status) {
+          console.log('error!');
+          console.log(status);
+        });
+        return dbsubmitBreak;
+      },
+      timerLength: 2000,
+      getTimerLength: function() {
+        return this.timerLength;
+      },
+      setTimerLength: function(timer) {
+        this.timerLength = timer;
       }
     };
     return breakScrambler;
