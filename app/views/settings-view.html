@@ -10,14 +10,14 @@
       </h2>
     </div>
     <div class="copy">
-      <form>
+      <form name="newbreakform">
         <fieldset>
-          <input id='name' name='name' type='text' placeholder='Name of Break' required autofocus>
-          <input id='name' name='name' type='text' placeholder='Break Description' required autofocus>
-          <input id='name' name='name' type='text' placeholder='Break length (in minutes)' required autofocus>
+          <input id='name' name='name' ng-model="breakname" type='text' placeholder='Name of Break' required autofocus>
+          <input id='name' name='name' ng-model="instructions" type='text' placeholder='Break Description' required autofocus>
+          <input id='name' name='name' ng-model="minutes" type='text' placeholder='Break length (in minutes)' required autofocus>
         </fieldset>
         <fieldset>
-          <button type='submit'>
+          <button type='submit' ng-disabled="newbreakform.$invalid" data-ng-click="newBreak(newbreakform); toggleModal3()">
             Submit
           </button>
         </fieldset>

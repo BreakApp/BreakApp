@@ -2,7 +2,7 @@
 'use strict';
 
 module.exports = function(app) {
-  app.controller('userController', function($scope, $http, $cookies, $base64, $location){
+  app.controller('userController', function($scope, $http, $cookies, $base64, $location, breakService){
 
     // if($location.path() === '/signout'){
     //   $cookies.jwt = null;
@@ -13,12 +13,19 @@ module.exports = function(app) {
     // if($location.path() === '/signup'){
     //
     // }
+
+    $scope.selectTime = 2000;
+    $scope.newBreakIdea = '';
     $scope.newuser = false;
 
     if(!$cookies.jwt || $cookies.jwt.length <= 10){
       $scope.loggedIn = false;
     } else {
       $scope.loggedIn = true;
+    }
+
+    $scope.setTimerLength = function(){
+      breakService.setTimerLength($scope.selectTime);
     }
 
     $scope.toggleModal1 = function(){
@@ -72,6 +79,14 @@ module.exports = function(app) {
     $scope.signOut = function(){
       $scope.loggedIn = false;
       $cookies.jwt = null;
+    };
+
+    $scope.newBreak = function() {
+      breakService.newBreak($scope.breakname, $scope.instructions, $scope.minutes)
+        .success(function(data) {
+          $scope.breaks.push(data);
+          $scope.newBreakIdea = '';
+        });
     };
 
   });
