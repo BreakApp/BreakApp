@@ -7,6 +7,7 @@ describe('breakController', function() {
   var $controllerConstructor;
   var $httpBackend;
   var scope;
+  var _breakService;
 
   beforeEach(angular.mock.module('breakApp'));
 
@@ -44,9 +45,15 @@ describe('breakController', function() {
     });
 
     it('starts the timer running when breakTimer is called', function() {
-      ctrl = $controllerConstructor('breakController', {$scope: scope}, {breakService: _breakService});
+      ctrl = $controllerConstructor('breakController', {$scope: scope});
       scope.breakTimer();
       expect(scope.timerRunning).toBeTruthy();
+    });
+
+    it('sets a current break when getBreak is called', function() {
+      ctrl = $controllerConstructor('breakController', {$scope: scope});
+      scope.getBreak();
+      expect(scope.currentBreak).toBeTruthy();
     });
 
     // it('should be able to create a new note', function() {
