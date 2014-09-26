@@ -24,15 +24,6 @@ describe('breakController', function() {
 
   describe('breakController functions', function() {
     var ctrl;
-    // beforeEach(angular.mock.inject(function(_$httpBackend_) {
-    //   $httpBackend = _$httpBackend_; 
-    //   $httpBackend.expectGET('/api/v_0_0_1/breakideas').respond(200);
-    // }));
-
-    // afterEach(function() {
-    //   $httpBackend.verifyNoOutstandingExpectation();
-    //   $httpBackend.verifyNoOutstandingRequest();
-    // });
 
     it('starts with no current break set', function() {
       ctrl = $controllerConstructor('breakController', {$scope: scope});
