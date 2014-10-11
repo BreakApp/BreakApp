@@ -10,7 +10,8 @@
     "after"      : false,
     "afterEach"  : false,
     "equal"      : false,
-    "angular"    : false
+    "angular"    : false,
+    "document"   : false
   },
   "jquery": true,
   "globalstrict": true,

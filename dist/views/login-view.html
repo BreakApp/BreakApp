@@ -1,1 +1,58 @@
-<div><a href="" ng-click="toggleModal1()" class="btn go"><span class="icon icon-user"></span></a></div><div id="modal" class="modal" ng-class="{'targeted': targeted1 === true}"><div class="modal-content"><div class="header"><h2>Log-In</h2></div><div class="copy"><form ng-show="loggedIn === false" name="userform" ng-hide="newuser"><fieldset><input id="email" name="email" type="email" required ng-model="user.email" placeholder="Email: example@domain.com" required> <input name="password" type="password" ng-model="user.password" id="password" placeholder="Please enter Password" required></fieldset><fieldset><button ng-disabled="userform.$invalid" ng-click="signIn(); toggleModal1()">Sign In</button></fieldset></form><button ng-show="loggedIn === true" ng-click="signOut()">Logout</button><form name="newUserform" ng-show="newuser && (loggedIn === false)"><fieldset><input id="email" name="email" type="email" required ng-model="user.email" placeholder="Email: example@domain.com" required> <input name="password" type="password" ng-model="user.password" id="password" placeholder="Please enter Password" required> <input name="password" type="password" ng-model="user.passwordConfirmation" id="password" placeholder="Please verify Password" required></fieldset><fieldset><button ng-disabled="newUserform.$invalid" ng-click="createNewUser(); newuser = !newuser; toggleModal1()">Create New User</button></fieldset></form><form><fieldset><a href="" ng-show="loggedIn === false" ng-click="newuser = !newuser">{{!newuser ? 'Create new User' : 'Sign in to existing account'}}</a></fieldset></form></div><div class="cf footer"><a href="" ng-click="toggleModal1()" class="btn">x</a></div></div><div class="overlay" ng-click="toggleModal1()"></div></div>
+<div>
+  <a href="" ng-click="toggleModal1()" class="btn go">
+    <span class="icon icon-user">
+    </span>
+  </a>
+</div>
+<div id="modal" class="modal" ng-class="{'targeted': targeted1 === true}">
+  <div class="modal-content">
+    <div class="header">
+      <h2>
+        Log-In
+      </h2>
+    </div>
+    <div class="copy">
+      <form ng-show="loggedIn === false" name="userform" ng-hide="newuser">
+        <fieldset>
+          <input id="email" name="email" type="email" required ng-model="user.email" placeholder="Email: example@domain.com" required>
+          <input name="password" type="password" ng-model="user.password" id="password" placeholder="Please enter Password" required>
+        </fieldset>
+        <fieldset>
+          <button ng-disabled="userform.$invalid" ng-click="signIn(); toggleModal1()">
+            Sign In
+          </button>
+        </fieldset>
+      </form>
+      <button ng-show="loggedIn === true" ng-click="signOut()">
+        Logout
+      </button>
+      <form name="newUserform" ng-show="newuser && (loggedIn === false)">
+        <fieldset>
+          <input id="email" name="email" type="email" required ng-model="user.email" placeholder="Email: example@domain.com" required>
+          <input name="password" type="password" ng-model="user.password" id="password" placeholder="Please enter Password" required>
+          <input name="password" type="password" ng-model="user.passwordConfirmation" id="password" placeholder="Please verify Password" required>
+        </fieldset>
+        <fieldset>
+          <button ng-disabled="newUserform.$invalid" ng-click="createNewUser(); newuser = !newuser; toggleModal1()">
+            Create New User
+          </button>
+        </fieldset>
+      </form>
+      <form>
+        <fieldset>
+          <a href="" ng-show="loggedIn === false" ng-click="newuser = !newuser">
+            {{!newuser ? 'Create new User' : 'Sign in to existing account'}}
+          </a>
+        </fieldset>
+      </form>
+    </div>
+    <div class="cf footer">
+      <a href="" ng-click="toggleModal1()" class="btn">
+        x
+      </a>
+    </div>
+  </div>
+  <div class="overlay" ng-click="toggleModal1()">
+  </div>
+</div>
+

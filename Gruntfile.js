@@ -34,7 +34,7 @@ module.exports = function(grunt) {
       dev: {
         expand: true,
         cwd: 'app/',
-        src: ['*.html', 'css/**/*.*', 'views/**/*.html'],
+        src: ['*.html', 'css/**/*.*', 'views/**/*.html', 'js/clock-notification.js'],
         dest: 'build/',
         filter: 'isFile'
       },
@@ -43,6 +43,13 @@ module.exports = function(grunt) {
         cwd: 'app/css/',
         src: ['fonts/**/*', '**/*.jpg'],
         dest: 'dist/css/',
+        filter: 'isFile'
+      },
+      distclock: {
+        expand: true,
+        cwd: 'app/js/',
+        src: ['clock-notification.js'],
+        dest: 'dist/js/',
         filter: 'isFile'
       }
     },
@@ -105,7 +112,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
           removeComments: true,
-          collapseWhitespace: true
+          minifyJS: true
         },
         files: [{
           expand: true,
@@ -146,7 +153,6 @@ module.exports = function(grunt) {
         files: ['server.js', 'routes/**/*.js', 'app/js/**/*', 'app/**/*.html', 'app/css/**/*'],
         tasks: ['build:frontend']
       }
-
     }
   });
   grunt.registerTask('build', ['clean:dev', 'browserify:dev', 'copy:dev']);
@@ -156,5 +162,5 @@ module.exports = function(grunt) {
   grunt.registerTask('frontend', ['build:frontend', 'express:dev', 'watch:frontend']);
   grunt.registerTask('test', ['jshint', 'browserify:angulartest', 'simplemocha', 'karma:unit']);
   grunt.registerTask('shrink', ['browserify:dev', 'uglify', 'htmlmin:dist', 'cssmin:dist']);
-  grunt.registerTask('production', ['clean:dist', 'shrink', 'copy:distfonts']);
+  grunt.registerTask('production', ['clean:dist', 'shrink', 'copy:distfonts', 'copy:distclock']);
 };
