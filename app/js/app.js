@@ -20,11 +20,13 @@ require('./directives/timer-directive')(breakApp);
 require('./directives/settings-directive')(breakApp);
 
 // router
-breakApp.config(['$routeProvider', function($routeProvider) {
+breakApp.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   $routeProvider.when('/', {
     templateUrl: 'views/break-view.html',
     controller: 'breakController'
   }).otherwise({
     redirectTo: '/'
   });
+  // use the HTML5 History API
+  $locationProvider.html5Mode(true);
 }]);
