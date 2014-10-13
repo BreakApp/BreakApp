@@ -1,14 +1,16 @@
 #modal, #modal2, #modal3, .modal, 
 .modal.ng-enter {
   left: 50%;
-  margin: -50% 0 0 -25%;
+  /*margin: -50% 0 0 -25%; */ /* modal was jumping around, going offscreen */
+  margin-left: -25%;
   opacity: 0;
   font-family:'Roboto', sans-serif;
   color: black;
-  position: absolute;
-  top: -50%;
+  position: fixed;
+  top: -100px;
   visibility: hidden;
   width: 50%;
+  min-width: 300px;
   box-shadow: 0 3px 7px rgba(0,0,0,.25);
   box-sizing: border-box;
   transition: all 0.4s ease-in-out;
@@ -18,9 +20,9 @@
 
 /* Make the modal appear when targeted */
 .modal.targeted {
-    opacity: 1 !important;
-    top: 50% !important;
-    visibility: visible !important;
+  opacity: 1 !important;
+  top: 3em !important;
+  visibility: visible !important;
 }
 
 #modal .header, #modal .footer,
@@ -56,7 +58,7 @@
 .modal-content, .modal2-content, .modal3-content {
   background: #f7f7f7;
   position: relative;
-  z-index: 20;
+  z-index: 2000;
   border-radius: 5px;
 }
 
@@ -72,5 +74,5 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 10;
+  z-index: 1000;
 }
