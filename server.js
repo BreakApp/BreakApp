@@ -7,9 +7,9 @@ var http = require('http');
 var passport = require('passport');
 var app = express();
 
-mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost/breaks');
+mongoose.connect(process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/breaks' || 'mongodb://localhost/breaks');
 
-app.use(express.static(__dirname + (process.env.STATIC_DIR || '/build')));
+app.use(express.static(__dirname + (process.env.STATIC_DIR || '/dist')));
 
 app.set('jwtTokenSecret', process.env.JWT_SECRET ||'developmentsecret');
 app.set('secret', process.env.SECRET ||'developmentsecret');
@@ -26,6 +26,8 @@ require('./routes/user-routes')(app, passport);
 
 var server = http.createServer(app);
 
-server.listen(process.env.PORT || 3000, function() {
-  console.log('server running on port 3000');
+var port = process.env.PORT || 3000;
+
+server.listen(port, function() {
+  console.log('server running on port ' + port);
 });
