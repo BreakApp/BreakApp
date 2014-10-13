@@ -5,9 +5,12 @@ var bodyparser = require('body-parser');
 var mongoose = require('mongoose');
 var http = require('http');
 var passport = require('passport');
+var compression = require('compression');
 var app = express();
 
 mongoose.connect(process.env.MONGO_URL || 'mongodb://127.0.0.1:27017/breaks' || 'mongodb://localhost/breaks');
+
+app.use(compression());
 
 app.use(express.static(__dirname + (process.env.STATIC_DIR || '/dist')));
 

@@ -22,6 +22,7 @@
   "dependencies": {
     "bcrypt-nodejs": "latest",
     "body-parser": "^1.8.1",
+    "compression": "^1.1.1",
     "express": "^4.9.4",
     "jwt-simple": "^0.2.0",
     "moment": "^2.8.3",
