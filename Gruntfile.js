@@ -1,21 +1,37 @@
 'use strict';
 module.exports = function(grunt) {
+  grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-express-server');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-env');
+  grunt.loadNpmTasks('grunt-express-server');
+  grunt.loadNpmTasks('grunt-karma');
   grunt.loadNpmTasks('grunt-mocha');
   grunt.loadNpmTasks('grunt-simple-mocha');
-  grunt.loadNpmTasks('grunt-karma');
 
   var allJavaScriptFilePaths = ['app/js/**/*.js','models/**/*.js','routes/**/*.js', 'server.js'];
 
   grunt.initConfig({
+    env: {
+      options : {
+      //Shared Options Hash
+      },
+      dev: {
+        MONGO_URL: 'mongodb://localhost/breaks',
+        STATIC_DIR: 'build/',
+        PORT: 5000
+      },
+      dist: {
+        MONGO_URL: 'mongodb://localhost/breaks',
+        STATIC_DIR: 'dist/'
+      }
+    },
+
     clean: {
       dev: {
         src: 'build/'
@@ -123,13 +139,15 @@ module.exports = function(grunt) {
       }
     },
     cssmin: {
+      dev: {
+        files: {
+          'build/css/cssbundle.min.css': ['app/css/**/*.css']
+        }
+      },
       dist: {
-        files: [{
-          expand: true,
-          cwd: 'app/css/',
-          src: ['**/*.css'],
-          dest: 'dist/css/'
-        }]
+        files: {
+          'dist/css/cssbundle.min.css': ['app/css/**/*.css']
+        }
       }
     },
 
@@ -152,15 +170,19 @@ module.exports = function(grunt) {
       frontend: {
         files: ['server.js', 'routes/**/*.js', 'app/js/**/*', 'app/**/*.html', 'app/css/**/*'],
         tasks: ['build:frontend']
+      },
+      dist: {
+        files: ['server.js', 'routes/**/*.js', 'app/js/**/*', 'app/**/*.html', 'app/css/**/*'],
+        tasks: ['shrink']
       }
     }
   });
-  grunt.registerTask('build', ['clean:dev', 'browserify:dev', 'copy:dev']);
-  grunt.registerTask('build:frontend', ['clean:frontend', 'copy:dev']);
-  grunt.registerTask('default', ['build', 'express:dev', 'watch:dev']);
+  grunt.registerTask('build', ['clean:dev', 'browserify:dev', 'copy:dev', 'cssmin:dev']);
+  grunt.registerTask('build:frontend', ['clean:frontend', 'copy:dev', 'cssmin:dev']);
+  grunt.registerTask('default', [/*'env:dev', */'build', 'express:dev', 'watch:dev']);
   grunt.registerTask('serve', ['default']);
-  grunt.registerTask('frontend', ['build:frontend', 'express:dev', 'watch:frontend']);
+  grunt.registerTask('frontend', [/*'env:dev', */'build:frontend', 'express:dev', 'watch:frontend']);
   grunt.registerTask('test', ['jshint', 'browserify:angulartest', 'simplemocha', 'karma:unit']);
-  grunt.registerTask('shrink', ['browserify:dev', 'uglify', 'htmlmin:dist', 'cssmin:dist']);
-  grunt.registerTask('production', ['clean:dist', 'shrink', 'copy:distfonts', 'copy:distclock']);
+  grunt.registerTask('shrink', ['clean:dist', 'browserify:dev', 'uglify', 'htmlmin:dist', 'cssmin:dist', 'copy:distfonts', 'copy:distclock']);
+  grunt.registerTask('production', [/*'env:dist', */'shrink', 'express:dev', 'watch:dist']);
 };

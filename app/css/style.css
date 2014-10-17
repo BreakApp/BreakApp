@@ -7,7 +7,7 @@ body {
 
 body::after {
   content: '';
-  background: url('seattle-town-wallpapers_6904_1920x1080.jpg');
+  background: url('seattle1920x1080.jpg');
   opacity: 0.2;
   top: 0;
   left: 0;
