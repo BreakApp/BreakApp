@@ -46,22 +46,15 @@ module.exports = function(grunt) {
       dev: {
         expand: true,
         cwd: 'app/',
-        src: ['*.html', 'css/**/*.*', 'views/**/*.html', 'js/clock-notification.js'],
+        src: ['*.html', '*.ico', 'css/**/*.*', 'views/**/*.html', 'js/clock-notification.js'],
         dest: 'build/',
         filter: 'isFile'
       },
-      distfonts: {
+      dist: {
         expand: true,
-        cwd: 'app/css/',
-        src: ['fonts/**/*', '**/*.jpg'],
-        dest: 'dist/css/',
-        filter: 'isFile'
-      },
-      distclock: {
-        expand: true,
-        cwd: 'app/js/',
-        src: ['clock-notification.js'],
-        dest: 'dist/js/',
+        cwd: 'app/',
+        src: ['css/fonts/**/*', 'css/**/*.jpg', '*.ico'],
+        dest: 'dist/',
         filter: 'isFile'
       }
     },
@@ -115,7 +108,8 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/bundle.js': ['build/bundle.js']
+          'dist/bundle.js': ['build/bundle.js'],
+          'dist/js/clock-notification.js': ['app/js/clock-notification.js']
         }
       }
     },
@@ -173,12 +167,13 @@ module.exports = function(grunt) {
       }
     }
   });
+
   grunt.registerTask('build', ['clean:dev', 'browserify:dev', 'copy:dev', 'cssmin:dev']);
   grunt.registerTask('build:frontend', ['clean:frontend', 'copy:dev', 'cssmin:dev']);
   grunt.registerTask('default', ['env:dev', 'build', 'express:dev', 'watch:dev']);
   grunt.registerTask('serve', ['default']);
   grunt.registerTask('frontend', ['env:dev', 'build:frontend', 'express:dev', 'watch:frontend']);
   grunt.registerTask('test', ['jshint', 'browserify:angulartest', 'simplemocha', 'karma:unit']);
-  grunt.registerTask('shrink', ['clean:dist', 'browserify:dev', 'uglify', 'htmlmin:dist', 'cssmin:dist', 'copy:distfonts', 'copy:distclock']);
+  grunt.registerTask('shrink', ['clean:dist', 'browserify:dev', 'uglify', 'htmlmin:dist', 'cssmin:dist', 'copy:dist']);
   grunt.registerTask('production', ['env:dist', 'shrink', 'express:dev', 'watch:dist']);
 };
