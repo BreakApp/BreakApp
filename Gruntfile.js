@@ -18,17 +18,13 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     env: {
-      options : {
-      //Shared Options Hash
-      },
       dev: {
         MONGO_URL: 'mongodb://localhost/breaks',
-        STATIC_DIR: 'build/',
-        PORT: 5000
+        STATIC_DIR: '/build'
       },
       dist: {
         MONGO_URL: 'mongodb://localhost/breaks',
-        STATIC_DIR: 'dist/'
+        STATIC_DIR: '/dist'
       }
     },
 
@@ -179,10 +175,10 @@ module.exports = function(grunt) {
   });
   grunt.registerTask('build', ['clean:dev', 'browserify:dev', 'copy:dev', 'cssmin:dev']);
   grunt.registerTask('build:frontend', ['clean:frontend', 'copy:dev', 'cssmin:dev']);
-  grunt.registerTask('default', [/*'env:dev', */'build', 'express:dev', 'watch:dev']);
+  grunt.registerTask('default', ['env:dev', 'build', 'express:dev', 'watch:dev']);
   grunt.registerTask('serve', ['default']);
-  grunt.registerTask('frontend', [/*'env:dev', */'build:frontend', 'express:dev', 'watch:frontend']);
+  grunt.registerTask('frontend', ['env:dev', 'build:frontend', 'express:dev', 'watch:frontend']);
   grunt.registerTask('test', ['jshint', 'browserify:angulartest', 'simplemocha', 'karma:unit']);
   grunt.registerTask('shrink', ['clean:dist', 'browserify:dev', 'uglify', 'htmlmin:dist', 'cssmin:dist', 'copy:distfonts', 'copy:distclock']);
-  grunt.registerTask('production', [/*'env:dist', */'shrink', 'express:dev', 'watch:dist']);
+  grunt.registerTask('production', ['env:dist', 'shrink', 'express:dev', 'watch:dist']);
 };
