@@ -1,1 +1,34 @@
-<a ng-show="loggedIn === true" href="" ng-click="toggleModal2()" class="btn go"><span class="icon icon-stopwatch"></span></a><div id="modal2" class="modal" ng-class="{'targeted': targeted2 === true}"><div class="modal2-content"><div class="header"><h2>Break Time</h2></div><div class="copy"><form><label for="breaklength">Choose your break length?</label><select id="breaklength" name="select" ng-model="selectTime"><option value="2000">2 seconds</option><option value="5000">5 seconds</option><option value="10000">10 seconds</option><option value="1200000">20 minutes</option><option value="1800000">30 minutes</option><option value="1700000">45 minutes</option><option value="3600000">1 hour</option></select><fieldset><button type="submit" ng-click="setTimerLength(); toggleModal2()">Submit</button></fieldset></form></div><div class="cf footer"><a href="" ng-click="toggleModal2()" class="btn">X</a></div></div><div class="overlay" ng-click="toggleModal2()"></div></div>
+<a ng-show="loggedIn === true" href="" ng-click="toggleModal2()" class="btn go">
+  <span class="icon icon-stopwatch"></span>
+</a>
+<div id="modal2" class="modal" ng-class="{'targeted': targeted2 === true}">
+  <div class="modal2-content">
+    <div class="header">
+      <h2>Break Time</h2>
+    </div>
+    <div class="copy">
+      <form>
+        <label for="breaklength">How much time do you want between breaks?</label>
+        <select id="breaklength" name="select" ng-model="selectTime">
+          <option value="2000">2 seconds</option>
+          <option value="5000">5 seconds</option>
+          <option value="10000">10 seconds</option>
+          <option value="1200000">20 minutes</option>
+          <option value="1800000">30 minutes</option>
+          <option value="1700000">45 minutes</option>
+          <option value="3600000">1 hour</option>
+        </select>
+        <fieldset>
+          <button type="submit" ng-click="setTimerLength(); toggleModal2()">
+            Submit
+          </button>
+        </fieldset>
+      </form>
+    </div>
+    <div class="cf footer">
+      <a href="" ng-click="toggleModal2()" class="btn">X</a>
+    </div>
+  </div>
+  <div class="overlay" ng-click="toggleModal2()">
+  </div>
+</div>

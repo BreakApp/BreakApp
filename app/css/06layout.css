@@ -17,7 +17,8 @@
 	}
 
 	#modal, #modal2, #modal3 {
-  	margin: -125% 0 0 -25%;
+  	/*margin: -125% 0 0 -25%;*/
+  	margin-left: -25%;
 	}
 
 	p {
@@ -38,7 +39,8 @@
 	}
 
 	#modal, #modal2, #modal3 {
-  	margin: -65% 0 0 -0%;
+  	/*margin: -65% 0 0 -0%;*/
+  	margin-left: 0;
 	}
 
 	p {
@@ -59,7 +61,8 @@
 	}
 
 	#modal, #modal2, #modal3 {
-  	margin: -120% 0 0 -27%;
+  	/*margin: -120% 0 0 -27%;*/
+  	margin-left: -27%;
 	}
 
 	p {
@@ -80,8 +83,13 @@
 	}
 
 	#modal, #modal2, #modal3 {
-  	margin: -140% 0 0 -43%;
+  	/*margin: -140% 0 0 -43%;*/
+  	margin-left: -40%;
   	width: 80%;
+	}
+
+	.modal.targeted {
+	  top: 1em !important;
 	}
 
 	p {

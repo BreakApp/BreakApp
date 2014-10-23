@@ -1,28 +1,30 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Take a Break!</title><link href="http://fonts.googleapis.com/css?family=Roboto:400,100" rel="stylesheet" type="text/css"><link rel="stylesheet" href="css/modal.css" media="screen"><link rel="stylesheet" href="css/base.css" media="screen"><link rel="stylesheet" href="css/fonts.css" media="screen"><link rel="stylesheet" href="css/skeleton.css" media="screen"><link rel="stylesheet" href="css/style.css" media="screen"><link rel="stylesheet" href="css/layout.css" media="screen"></head><body ng-app="breakApp" ng-strict-di onload="startTime()"><main class="container"><div onload="startTime()" id="txt"></div><div ng-controller="breakController" class="sixteen columns"><div ng-view></div></div></main><div ng-controller="userController"><footer><ul><li><div login-directive></div></li><li><div timer-directive></div></li><li><div settings-directive></div></li></ul></footer></div></body><script src="bundle.js"></script></html><script>function startTime() {
-    var today=new Date();
-    var h=today.getHours();
-    var m=today.getMinutes();
-    var s=today.getSeconds();
-    m = checkTime(m);
-    s = checkTime(s);
-    document.getElementById('txt').innerHTML = h+":"+m+":"+s;
-    var t = setTimeout(function(){startTime()},500);
-  }
-
-  function checkTime(i) {
-    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
-    return i;
-  }
-
-  /* jshint ignore:start */
-  var Notification = window.Notification || window.mozNotification || window.webkitNotification;
-  Notification.requestPermission(function (permission) {});
-  function show(){
-    var instance = new Notification(
-      "Break Time!", {
-        body: "Time to get away from the computer for a minute"
-      }
-    );
-    return false;
-  }
-  /* jshint ignore:end */</script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Take a Break!</title>
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,100" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/cssbundle.min.css" media="screen">
+    <base href="/">
+  </head>
+  <body ng-app="breakApp" ng-strict-di onload="startTime()">
+    <main class="container">
+      <div onload="startTime()" id="txt">
+      </div>
+      <div ng-controller="breakController" class="sixteen columns">
+        <div ng-view>
+        </div>
+      </div>
+    </main>
+    <div ng-controller="userController">
+      <footer>
+        <ul>
+          <li><div login-directive></div></li>
+          <li><div timer-directive></div></li>
+          <li><div settings-directive></div></li>
+        </ul>
+      </footer>
+    </div>
+  </body>
+  <script src="bundle.js"></script><script src="js/clock-notification.js"></script></html>
